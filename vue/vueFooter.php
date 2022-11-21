@@ -1,16 +1,12 @@
 </div>
-<style type="text/css">
-    @import url("css/footer.css");
-</style>
-
 <div class="fondFooter">
     <div class="infoMarie">
         <p>
         Marie-Team
         <br>
-        36110 Indre06 
+        36110 Indre 
         <br>
-        00 00 00 00
+        06 00 00 00 00
         </p>
     </div>
     <div  class="mailMarie">
