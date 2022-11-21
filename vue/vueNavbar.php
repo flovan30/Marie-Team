@@ -17,7 +17,7 @@
             <li class="logoNavbar"><a href="./?action=accueil"><img src="images/LogoMarie-Team.png" alt="logo" /></a></li>
             <li><a href="./?action=accueil">Accueil</a></li> 
             <li><a href="./?action=recherche">Destination</a></li> 
-            <li><a href="./?action=cgu">Nos tarifs</a></li>
+            <li><a href="./?action=tarifs">Nos tarifs</a></li>
             <li id="profil"><a href="./?action=accueil"><img src="images/logoBarre.png" alt="profil" /></a></li>
             </ul>
 </nav>

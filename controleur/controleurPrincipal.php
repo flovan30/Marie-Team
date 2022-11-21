@@ -4,7 +4,7 @@ function controleurPrincipal($action){
     $lesActions = array();
     $lesActions["defaut"] = "accueil.php";
     $lesActions["reservation"] = "reservation.php";
-    $lesActions["tarifs"] = "tarif.php";
+    $lesActions["tarifs"] = "tarifs.php";
     $lesActions["connexion"] = "connexion.php";
     $lesActions["inscription"] = "inscription.php";
 
