@@ -1,9 +1,7 @@
-<style type="text/css"> @import url("css/corpsAccueil.css");</style>
-
 <main>
     <section class="main_top">
         <div class="overlay">
-                <h1>Bienvenue sur Marie-Team.com<br>Leader franÃ§ais du transport maritime</h1>
+                <h1>Bienvenue sur Marie-Team.com<br>Leader français du transport maritime</h1>
         </div>
     </section>
     <section class="main_bottom">
