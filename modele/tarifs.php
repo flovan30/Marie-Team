@@ -44,6 +44,30 @@ function getLiaisons() {
     return $resultat;
 }
 
+function getPortById($idPort) {
+    $resultat = array();
+
+    try {
+        $pdo_options[PDO::ATTR_ERRMODE] = PDO::ERRMODE_EXCEPTION;
+        $bdd = new PDO('mysql:host=localhost;dbname=marieteam', 'root', '', $pdo_options);
+
+        $req = $bdd->prepare("select * from port where idPort like :idPort");
+        $req->bindValue(':idPort', $idPort, PDO::PARAM_INT);
+
+        $req->execute();
+
+        $ligne = $req->fetch(PDO::FETCH_ASSOC);
+        while ($ligne) {
+            $resultat[] = $ligne;
+            $ligne = $req->fetch(PDO::FETCH_ASSOC);
+        }
+    } catch (PDOException $e) {
+        print "Erreur !: " . $e->getMessage();
+        die();
+    }
+    return $resultat;
+}
+
 function getLiaisonById($codeLiaison) {
     $resultat = array();
 
