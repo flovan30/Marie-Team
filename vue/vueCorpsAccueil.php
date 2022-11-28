@@ -13,14 +13,14 @@
         </svg>
         <h2 class="title_bottom">Notre activité</h2>
         <div class="cards">
-            <div class="card">
+            <div class="card cardLeft">
                 <h3 class="card_title">Transports de voyageurs</h3>
                 <p class="card_paragraph">Vous souhaitez réserver une <br> traversée en famille ou <br> entre amis ?</p>
                 <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/align-content"><button
                         class="card_button">C'est par ici
                         !</button></a>
             </div>
-            <div class="card">
+            <div class="card cardRight">
                 <h3 class="card_title">Transport de fret</h3>
                 <p class="card_paragraph">Vous etes un professionnel <br> et vous souhaitez expedier <br> vos
                     marchandise ? </p>
