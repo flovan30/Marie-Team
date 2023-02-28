@@ -1,3 +1,9 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
 .menuGeneral {
     background-color: #484349;
     display: flex;
@@ -5,11 +11,13 @@
 }
 
 .logoNavbar {
-    padding: 20px 0 10px 20px;;
+    padding: 20px 0 10px 20px;
+    ;
     margin-right: auto;
 }
-.logoNavbar:hover{
-    filter:invert(1);
+
+.logoNavbar:hover {
+    filter: invert(1);
     transition: 0.7s;
     transform: scale(1.5);
 }
@@ -24,13 +32,13 @@
     margin-left: auto;
 }
 
-.profil img{
+.profil img {
     width: 15%;
 }
 
-.liensDroite li a:hover{
+.liensDroite li a:hover {
     color: transparent;
-    background-image: url("../images/name.gif") ;
+    background-image: url("../images/name.gif");
     background-size: cover;
     background-clip: text;
     -webkit-background-clip: text;
@@ -39,9 +47,9 @@
 
 
 .liensDroite {
-    list-style-type: none;  
+    list-style-type: none;
     display: flex;
-    margin-right:20px ;
+    margin-right: 20px;
     font-size: 26px;
     align-items: center;
 }
@@ -58,4 +66,3 @@
 .imgpro {
     width: 70px;
 }
-

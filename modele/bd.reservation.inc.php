@@ -92,12 +92,14 @@ function getTraverseeByCodeLiaisonAndDate($codeLiaison, $date)
 }
 
 // pour affiche dans les reservations
-function getNbPlacesPrisesPassager()
+function getNbPlacesPrisesPassager($idTraversee)
 {
 }
-function getNbPlacesPrisesVehiculeInf2m()
+
+function getNbPlacesPrisesVehiculeInf2m($idTraversee)
 {
 }
-function getNbPlacesPrisesVehiculeSup2m()
+
+function getNbPlacesPrisesVehiculeSup2m($idTraversee)
 {
 }
