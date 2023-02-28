@@ -1,13 +1,13 @@
 <h1>Inscription</h1>
 
-<form action="./?action=connexion" method="POST">
-    <input type="text" name="Nom" placeholder="Nom"/>
-    <input type="text" name="AdresseMail" placeholder="EMail"/>
-    <input type="password" name="mdp" placeholder="Mot de passe" />
-    <input type="text" name="Adresse" placeholder="Adresse"/>
-    <input type="text" name="CP" placeholder="Code Postal"/>
-    <input type="submit" value="CONNEXION"/>
-
-</form>
-    <button><a href="./?action=connexion">Retour</a></button>
-    <a href="./?action=defaut"><- Retour a l'accueil</a>
+    
+    <form action="modele/inscription.inc.php" method="POST">
+            <input type="text" class="" name="nomInscription" placeholder="nom" required /><br><br>
+            <input type="text" class="" name="mailInscription" placeholder="mail" required /><br><br>
+            <input type="password" class="" name="mdpInscription" placeholder="mdp" required /><br><br>
+            <input type="password" class="" name="mdpVerifInscription" placeholder="Verification mdp" required /><br><br>
+            <input type="text" class="" name="adresseInscription" placeholder="adresse" required  /><br><br>
+            <input type="text" class="box-input" name="cpInscription" placeholder="cp" /><br><br>
+    </select>
+            <input type="submit" value="Confirmer"/>
+            <input type="reset" value="Effacer"/><br><br>

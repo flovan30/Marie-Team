@@ -6,17 +6,15 @@ if ( $_SERVER["SCRIPT_FILENAME"] == __FILE__ ){
 include "$racine/modele/connexion.inc.php";
 
 
-if (isset($_POST["mail"]) && isset($_POST["mdp"])){
-    $mailU=$_POST["mail"];
-    $mdpU=$_POST["mdp"];
+if (isset($_POST["AdresseMailUtilisateur"]) && isset($_POST["MdpUtilisateur"])){
+    $mailU=$_POST["AdresseMailUtilisateur"];
+    $mdpU=$_POST["MdpUtilisateur"];
 }
 else
 {
     $mailU="";
     $mdpU="";
 }
-
-login($mailU,$mdpU);
 
 if (isLoggedOn()){
     include "$racine/controleur/monProfil.php";

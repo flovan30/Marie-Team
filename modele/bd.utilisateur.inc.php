@@ -27,8 +27,8 @@ function getUtilisateurByMail($mail) {
 
     try {
         $cnx = connexionPDO();
-        $req = $cnx->prepare("select * from utilisateur where AdresseMailUtilisateur=:mail");
-        $req->bindValue(':mail', $mail, PDO::PARAM_STR);
+        $req = $cnx->prepare("select * from utilisateur where AdresseMailUtilisateur=:AdresseMailUtilisateur");
+        $req->bindValue(':AdresseMailUtilisateur', $mail, PDO::PARAM_STR);
         $req->execute();
         
         $resultat = $req->fetch(PDO::FETCH_ASSOC);
@@ -39,16 +39,21 @@ function getUtilisateurByMail($mail) {
     return $resultat;
 }
 
+function mesInformations($mail) {
+    $resultat = array();
 
-if ($_SERVER["SCRIPT_FILENAME"] == __FILE__) {
-    // prog principal de test
-    header('Content-Type:text/plain');
-
-    echo "getUtilisateurs() : \n";
-    print_r(getUtilisateurs());
-
-    echo "getUtilisateurByMailU('mathieu.capliez@gmail.com') : \n";
-    print_r(getUtilisateurByMailU("mathieu.capliez@gmail.com"));
-
+    try {
+        $cnx = connexionPDO();
+        $req = $cnx->prepare("select * from utilisateur where Adresse=:mailU");
+        $req->bindValue(':mailU', $mail, PDO::PARAM_STR);
+        $req->execute();
+        
+        $resultat = $req->fetch(PDO::FETCH_ASSOC);
+    } catch (PDOException $e) {
+        print "Erreur !: " . $e->getMessage();
+        die();
+    }
+    return $resultat;
 }
+
 ?>

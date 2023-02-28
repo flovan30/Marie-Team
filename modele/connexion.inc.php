@@ -9,12 +9,10 @@ function login($mail, $mdp) {
     }
 
     $util = getUtilisateurByMail($mail);
-    $mdpBD = $util["mdpUtilisateur"];
-
+    $mdpBD = $util["MdpUtilisateur"];
     if (($mdpBD) == hash('sha256' , $mdp)) {
-        $_SESSION["mailCo"] = $mail;
-        $_SESSION["mdpCo"] = $mdpBD;
-        //$_SESSION["idcompte"] = $idCompte;
+        $_SESSION["AdresseMailUtilisateur"] = $mail;
+        $_SESSION["MdpUtilisateur"] = $mdpBD;
     }
 }
 
@@ -22,13 +20,13 @@ function logout() {
     if (!isset($_SESSION)) {
         session_start();
     }
-    unset($_SESSION["mail"]);
-    unset($_SESSION["mdp"]);
+    unset($_SESSION["AdresseMailUtilisateur"]);
+    unset($_SESSION["MdpUtilisateur"]);
 }
 
 function getMailULoggedOn(){
     if (isLoggedOn()){
-        $ret = $_SESSION["mail"];
+        $ret = $_SESSION["AdresseMailUtilisateur"];
     }
     else {
         $ret = "";
@@ -43,9 +41,9 @@ function isLoggedOn() {
     }
     $ret = false;
 
-    if (isset($_SESSION["mail"])) {
-        $util = getUtilisateurByMail($_SESSION["mail"]);
-        if ($util["mail"] == $_SESSION["mail"] && $util["mdp"] == $_SESSION["mdp"]
+    if (isset($_SESSION["AdresseMailUtilisateur"])) {
+        $util = getUtilisateurByMail($_SESSION["AdresseMailUtilisateur"]);
+        if ($util["AdresseMailUtilisateur"] == $_SESSION["AdresseMailUtilisateur"] && $util["MdpUtilisateur"] == $_SESSION["MdpUtilisateur"]
         ) {
             $ret = true;
         }
