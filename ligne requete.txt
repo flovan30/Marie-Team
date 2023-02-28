@@ -1,0 +1,8 @@
+Ligne pour ajouter une traversée
+INSERT INTO traversee (dateTraversee, heureDepartTraversee, idBateau, codeLiaison) VALUES ('2023-12-29', '14:30', 4,1);
+
+INSERT INTO traversee (dateTraversee, heureDepartTraversee, idBateau, codeLiaison) VALUES ('2022-12-29', '14:00', 1,7);
+
+
+
+[{"numTraversee":2,"dateTraversee":"2022-12-29","heureDepartTraversee":"14:00:00","idBateau":1,"codeLiaison":7}]
