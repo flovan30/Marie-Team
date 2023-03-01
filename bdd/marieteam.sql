@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost:3306
--- Généré le : mar. 28 fév. 2023 à 20:32
+-- Généré le : mer. 01 mars 2023 à 07:27
 -- Version du serveur : 8.0.30
 -- Version de PHP : 8.1.10
 
@@ -286,18 +286,17 @@ CREATE TABLE `traversee` (
   `dateTraversee` date NOT NULL,
   `heureDepartTraversee` time NOT NULL,
   `idBateau` int NOT NULL,
-  `codeLiaison` int NOT NULL,
-  `placeReservées` int NOT NULL DEFAULT '0'
+  `codeLiaison` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_bin;
 
 --
 -- Déchargement des données de la table `traversee`
 --
 
-INSERT INTO `traversee` (`numTraversee`, `dateTraversee`, `heureDepartTraversee`, `idBateau`, `codeLiaison`, `placeReservées`) VALUES
-(1, '2023-12-29', '14:30:00', 4, 1, 0),
-(2, '2022-12-29', '14:00:00', 1, 7, 0),
-(3, '2023-12-29', '16:30:00', 4, 1, 0);
+INSERT INTO `traversee` (`numTraversee`, `dateTraversee`, `heureDepartTraversee`, `idBateau`, `codeLiaison`) VALUES
+(1, '2023-12-29', '14:30:00', 4, 1),
+(2, '2022-12-29', '14:00:00', 1, 7),
+(3, '2023-12-29', '16:30:00', 4, 1);
 
 -- --------------------------------------------------------
 

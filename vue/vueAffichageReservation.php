@@ -48,7 +48,10 @@
             $liaison = $_POST['liaison'];
             $date = $_POST['dateDestination'];
             $traversee = getTraverseeByCodeLiaisonAndDate($liaison, $date);
-            echo print_r($traversee);
+            // echo print_r($traversee);
+        ?>
+            <h1>date de la traversée : <?= $traversee[0]['dateTraversee'] ?> | heure de départ : <?= $traversee[0]['heureDepartTraversee'] ?> </h1>
+        <?php
         }
         ?>
     </div>

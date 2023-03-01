@@ -17,9 +17,9 @@
 }
 
 .logoNavbar:hover {
-    filter: invert(1);
+    border-radius: 50%;
     transition: 0.7s;
-    transform: scale(1.5);
+    transform: scale(1.2);
 }
 
 .logoNavbar img {
@@ -42,7 +42,7 @@
     background-size: cover;
     background-clip: text;
     -webkit-background-clip: text;
-    transition: 1s;
+    transition: 0.3s;
 }
 
 
