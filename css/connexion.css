@@ -9,15 +9,27 @@ div {
 }
 
 .boxLogin {
-    border: 4px solid;
-    display: block;
     margin-left: auto;
     margin-right: auto;
     margin-top: 1%;
     margin-bottom: 1%;
+}
+
+.formLogin {
+    display: block;
     text-align: center;
-    padding-left: 2%;
-    padding-right: 2%;
+    float: left;
+    background-color: #d2d2d2;
+    padding: 2% 3% 0.5% 3%;
+    height: 400px;
+}
+
+.imageLogin {
+    float: right;
+}
+
+.imageLogin img {
+    height: 400px;
 }
 
 .boxLogin a {
@@ -78,6 +90,7 @@ div {
     padding: 0 15px;
     color: #161616;
     transition: background-color 70ms cubic-bezier(.2, 0, .38, .9), outline 70ms cubic-bezier(.2, 0, .38, .9);
+    margin-bottom: 4px;
 }
 
 .textInputLogin:focus {
@@ -94,13 +107,14 @@ div {
     background: #8d8d8d;
     border: 1px solid #8d8d8d;
     font-size: 13px;
-    height: 31px;
-    padding: 0 11px;
+    height: 23px;
+    padding: 5px 11px;
     text-align: center;
     width: 100%;
     min-width: 200px;
     font-weight: 500;
     color: #0F1111;
+    margin-bottom: 5px;
 }
 
 .leaveButton:hover {

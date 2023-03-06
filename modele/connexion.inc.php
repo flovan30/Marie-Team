@@ -16,9 +16,9 @@ function login($mail, $mdp) {
     }
 }
 
-function getMailULoggedOn(){
+function getMailLoggedOn(){
     if (isLoggedOn()){
-        $ret = $_SESSION["mailU"];
+        $ret = $_SESSION["AdresseMailUtilisateur"];
     }
     else {
         $ret = "";
@@ -33,17 +33,6 @@ function logout() {
     }
     unset($_SESSION["AdresseMailUtilisateur"]);
     unset($_SESSION["MdpUtilisateur"]);
-}
-
-function getMailULoggedOn(){
-    if (isLoggedOn()){
-        $ret = $_SESSION["AdresseMailUtilisateur"];
-    }
-    else {
-        $ret = "";
-    }
-    return $ret;
-        
 }
 
 function isLoggedOn() {
