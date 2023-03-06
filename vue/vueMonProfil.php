@@ -4,7 +4,7 @@
 
 Nom : <?= $util["NomUtilisateur"] ?> <br />
 Adresse : <?= $util["AdresseUtilisateur"] ?> <br />
-Code Postal : <?= $util["CPUtilisateur"] ?> <br />
+Code Postal : <?= $util["CpUtilisateur"] ?> <br />
 Email : <?= $util["AdresseMailUtilisateur"] ?> <br />
 
 <br>
@@ -15,8 +15,8 @@ Email : <?= $util["AdresseMailUtilisateur"] ?> <br />
 <br>
 
 <?php
-        echo "Bienvenue ";
-        ?>
+echo "Bienvenue ";
+?>
 
 Numéros de réservation : <?= $util["AdresseUtilisateur"] ?> <br />
 Liaison : <?= $util["AdresseUtilisateur"] ?> <br />

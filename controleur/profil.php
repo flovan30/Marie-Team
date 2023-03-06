@@ -1,18 +1,21 @@
-<?php 
+<?php
 
-if ( $_SERVER["SCRIPT_FILENAME"] == __FILE__ ){
-    $racine="..";
+if ($_SERVER["SCRIPT_FILENAME"] == __FILE__) {
+    $racine = "..";
 }
 
 include_once "$racine/modele/connexion.inc.php";
 include_once "$racine/modele/bd.utilisateur.inc.php";
 
 $menuBurger = array();
-$menuBurger[] = Array("url"=>"./?action=profil","label"=>"Consulter mon profil");
-$menuBurger[] = Array("url"=>"./?action=updProfil","label"=>"Modifier mon profil");
+$menuBurger[] = array("url" => "./?action=profil", "label" => "Consulter mon profil");
+$menuBurger[] = array("url" => "./?action=updProfil", "label" => "Modifier mon profil");
 
 
-if (isLoggedOn()){
+if (isLoggedOn()) {
+    //call function to find email of logged on user and return it to $mail variable 
+
+
     $mail = getMailLoggedOn();
     $util = getUtilisateurByMail($mail);
 
@@ -20,13 +23,6 @@ if (isLoggedOn()){
     include "$racine/vue/vueNavbar.php";
     include "$racine/vue/vueMonProfil.php";
     include "$racine/vue/vueFooter.php";
-    
-}
-
-
-else {
+} else {
     $util = 'test';
 }
-
-
-?>
