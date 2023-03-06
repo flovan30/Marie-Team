@@ -4,7 +4,7 @@ function controleurPrincipal($action)
 {
     $lesActions = array();
     $lesActions["defaut"] = "accueil.php";
-    $lesActions["destination"] = "reservation.php";
+    $lesActions["destination"] = "destination.php";
     $lesActions["tarifs"] = "tarifs.php";
     $lesActions["connexion"] = "connexion.php";
     $lesActions["inscription"] = "inscription.php";
@@ -18,5 +18,3 @@ function controleurPrincipal($action)
         return $lesActions["defaut"];
     }
 }
-
-?>

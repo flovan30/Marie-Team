@@ -31,8 +31,6 @@ if ( isset($_POST['nomInscription'])==1 && isset($_POST['mailInscription'])==1 &
         if ($base){ 
             $requete = 'INSERT INTO utilisateur (NomUtilisateur,AdresseMailUtilisateur,MdpUtilisateur,AdresseUtilisateur,CpUtilisateur) VALUES ("'. $nomvalide . '","' . $mailvalide . '","' . hash('sha256',$mdpvalide)  . '","' . $adressevalide . '",' . $cpvalide .  ')';
             mysqli_query($base, $requete);
-            echo $requete;
-            echo "test reussite";
             
 
             echo "<script type='text/javascript'>
@@ -54,5 +52,3 @@ if ( isset($_POST['nomInscription'])==1 && isset($_POST['mailInscription'])==1 &
 else {
     echo "error formulaire";
 }
-
-?>
