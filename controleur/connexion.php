@@ -9,6 +9,7 @@ include "$racine/modele/connexion.inc.php";
 if (isset($_POST["AdresseMailUtilisateur"]) && isset($_POST["MdpUtilisateur"])){
     $mail=$_POST["AdresseMailUtilisateur"];
     $mdp=$_POST["MdpUtilisateur"];
+    login($mail,$mdp);
 }
 else
 {
@@ -16,8 +17,6 @@ else
     $mdp="";
 }
 
-
-login($mail,$mdp);
 
 if (isLoggedOn()){
     include "$racine/controleur/profil.php";
