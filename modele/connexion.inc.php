@@ -16,16 +16,6 @@ function login($mail, $mdp) {
     }
 }
 
-function getMailULoggedOn(){
-    if (isLoggedOn()){
-        $ret = $_SESSION["mailU"];
-    }
-    else {
-        $ret = "";
-    }
-    return $ret;
-        
-}
 
 function logout() {
     if (!isset($_SESSION)) {

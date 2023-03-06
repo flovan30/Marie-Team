@@ -20,7 +20,7 @@ else
 login($mail,$mdp);
 
 if (isLoggedOn()){
-    include "$racine/controleur/monProfil.php";
+    include "$racine/controleur/profil.php";
 }
 else{ 
 
