@@ -94,6 +94,23 @@ function getTraverseeByCodeLiaisonAndDate($codeLiaison, $date)
 // pour affiche dans les reservations
 function getNbPlacesPrisesPassager($idTraversee)
 {
+    $resultat = array();
+    try {
+        $cnx = connexionPDO();
+        $req = $cnx->prepare("select count(*) as nbPassager from reservation where idTraversee like :idTraversee");
+        $req->bindValue(':idTraversee', $idTraversee, PDO::PARAM_INT);
+        $req->execute();
+
+        $ligne = $req->fetch(PDO::FETCH_ASSOC);
+        while ($ligne) {
+            $resultat[] = $ligne;
+            $ligne = $req->fetch(PDO::FETCH_ASSOC);
+        }
+    } catch (PDOException $e) {
+        print "Erreur !: " . $e->getMessage();
+        die();
+    }
+    return $resultat;
 }
 
 function getNbPlacesPrisesVehiculeInf2m($idTraversee)
