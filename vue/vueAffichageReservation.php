@@ -42,17 +42,20 @@
                 <input type="submit" value="Afficher">
             </form>
 
-        <?php
+            <?php
         }
         if (isset($_POST['liaison']) && isset($_POST['dateDestination'])) {
             $liaison = $_POST['liaison'];
             $date = $_POST['dateDestination'];
             $traversee = getTraverseeByCodeLiaisonAndDate($liaison, $date);
             // echo print_r($traversee);
-        ?>
-            <h1>date de la traversée : <?= $traversee[0]['dateTraversee'] ?> | heure de départ : <?= $traversee[0]['heureDepartTraversee'] ?> </h1>
-        <?php
+
+            for ($i = 0; $i < count($traversee); $i++) {
+            ?>
+                <h3>Numeros de la traversée : <?= $traversee[$i]['numTraversee'] ?> | date de la traversée : <?= $traversee[$i]['dateTraversee'] ?> | heure de départ : <?= $traversee[$i]['heureDepartTraversee'] ?> <form action=""><input type="hidden" name="numTraversee" value="<?= $traversee[$i]['numTraversee'] ?>"><input type="submit" value="Réserver"></form>
+            <?php
+            }
         }
-        ?>
+            ?>
     </div>
 </main>
