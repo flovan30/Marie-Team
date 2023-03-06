@@ -17,6 +17,7 @@
     <nav>
         <ul class="menuGeneral">
             <li class="logoNavbar"><a href="./?action=accueil"><img src="images/LogoMarie-Team.png" alt="logo" /></a></li>
+
             <div class=liensDroite>
                 <li><a href="./?action=accueil">Accueil</a></li>
                 <li><a href="./?action=destination">Destination</a></li>
@@ -26,3 +27,4 @@
         </ul>
     </nav>
     <div id="corps">
+
