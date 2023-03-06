@@ -11,10 +11,14 @@ Email : <?= $util["AdresseMailUtilisateur"] ?> <br />
 <hr>
 <br>
 
-<h1>Mes réservations :</h1>
+<h1>Mes réservations de test :</h1>
 <br>
 
-Numéro de réservation : <?= $util["AdresseUtilisateur"] ?> <br />
+<?php
+        echo "Bienvenue ";
+        ?>
+
+Numéros de réservation : <?= $util["AdresseUtilisateur"] ?> <br />
 Liaison : <?= $util["AdresseUtilisateur"] ?> <br />
 Prix : <?= $util["AdresseUtilisateur"] ?> <br />
 Réservation : <?= $util["AdresseUtilisateur"] ?> <br />

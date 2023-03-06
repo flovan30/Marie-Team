@@ -7,14 +7,17 @@ include "$racine/modele/connexion.inc.php";
 
 
 if (isset($_POST["AdresseMailUtilisateur"]) && isset($_POST["MdpUtilisateur"])){
-    $mailU=$_POST["AdresseMailUtilisateur"];
-    $mdpU=$_POST["MdpUtilisateur"];
+    $mail=$_POST["AdresseMailUtilisateur"];
+    $mdp=$_POST["MdpUtilisateur"];
 }
 else
 {
-    $mailU="";
-    $mdpU="";
+    $mail="";
+    $mdp="";
 }
+
+
+login($mail,$mdp);
 
 if (isLoggedOn()){
     include "$racine/controleur/monProfil.php";
