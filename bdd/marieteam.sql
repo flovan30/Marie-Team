@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost:3306
--- Généré le : mer. 01 mars 2023 à 07:27
+-- Généré le : lun. 06 mars 2023 à 15:12
 -- Version du serveur : 8.0.30
 -- Version de PHP : 8.1.10
 
@@ -334,7 +334,7 @@ CREATE TABLE `utilisateur` (
   `IDutilisateur` int NOT NULL,
   `NomUtilisateur` varchar(32) CHARACTER SET utf8mb3 COLLATE utf8mb3_bin NOT NULL,
   `AdresseMailUtilisateur` varchar(64) CHARACTER SET utf8mb3 COLLATE utf8mb3_bin NOT NULL,
-  `MdpUtilisateur` varchar(32) CHARACTER SET utf8mb3 COLLATE utf8mb3_bin NOT NULL,
+  `MdpUtilisateur` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_bin NOT NULL,
   `AdresseUtilisateur` varchar(128) CHARACTER SET utf8mb3 COLLATE utf8mb3_bin NOT NULL,
   `CpUtilisateur` int NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_bin;
@@ -344,7 +344,8 @@ CREATE TABLE `utilisateur` (
 --
 
 INSERT INTO `utilisateur` (`IDutilisateur`, `NomUtilisateur`, `AdresseMailUtilisateur`, `MdpUtilisateur`, `AdresseUtilisateur`, `CpUtilisateur`) VALUES
-(1, 'John', 'johndoe@gmail.com', 'password', '69 rue Gaston Berger', 59000);
+(1, 'John', 'johndoe@gmail.com', 'password', '69 rue Gaston Berger', 59000),
+(3, 'Vanreust', 'florianvanreust@gmail.com', 'b8fe7b5bf0edd635fa2f6e2602664a89d18b22f7898a31fb565305406170809b', '9 sur 10 rue charles van de veegaete', 59200);
 
 --
 -- Index pour les tables déchargées
@@ -433,6 +434,12 @@ ALTER TABLE `type`
   ADD PRIMARY KEY (`codeCategorie`,`numType`);
 
 --
+-- Index pour la table `utilisateur`
+--
+ALTER TABLE `utilisateur`
+  ADD PRIMARY KEY (`IDutilisateur`);
+
+--
 -- AUTO_INCREMENT pour les tables déchargées
 --
 
@@ -453,6 +460,12 @@ ALTER TABLE `reservation`
 --
 ALTER TABLE `traversee`
   MODIFY `numTraversee` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT pour la table `utilisateur`
+--
+ALTER TABLE `utilisateur`
+  MODIFY `IDutilisateur` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Contraintes pour les tables déchargées
