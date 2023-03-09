@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost:3306
--- Généré le : mer. 01 mars 2023 à 07:27
+-- Généré le : jeu. 09 mars 2023 à 08:38
 -- Version du serveur : 8.0.30
 -- Version de PHP : 8.1.10
 
@@ -114,12 +114,15 @@ CREATE TABLE `enregistrer` (
 --
 
 INSERT INTO `enregistrer` (`codeCategorie`, `numType`, `numReservation`, `quantité`) VALUES
-('A', 1, 1, 1),
-('A', 2, 1, 1),
-('A', 3, 1, 1),
+('A', 1, 1, 10),
+('A', 1, 2, 150),
+('A', 2, 1, 10),
+('A', 3, 1, 10),
 ('B', 1, 1, 1),
+('B', 1, 2, 70),
 ('B', 2, 1, 1),
 ('C', 1, 1, 1),
+('C', 1, 2, 50),
 ('C', 2, 1, 1),
 ('C', 3, 1, 1);
 
@@ -218,7 +221,8 @@ CREATE TABLE `reservation` (
 --
 
 INSERT INTO `reservation` (`numReservation`, `nomReservation`, `adresseReservation`, `cpReservation`, `villeReservation`, `numTraversee`) VALUES
-(1, 'Peterson', 'Avenue Gaston Berger', '59000', 'Lille', 1);
+(1, 'Peterson', 'Avenue Gaston Berger', '59000', 'Lille', 1),
+(2, 'John', 'Avenue Gaston Berger', '59000', 'Lille', 4);
 
 -- --------------------------------------------------------
 
@@ -296,7 +300,8 @@ CREATE TABLE `traversee` (
 INSERT INTO `traversee` (`numTraversee`, `dateTraversee`, `heureDepartTraversee`, `idBateau`, `codeLiaison`) VALUES
 (1, '2023-12-29', '14:30:00', 4, 1),
 (2, '2022-12-29', '14:00:00', 1, 7),
-(3, '2023-12-29', '16:30:00', 4, 1);
+(3, '2023-12-29', '16:30:00', 1, 1),
+(4, '2023-12-29', '20:30:00', 5, 1);
 
 -- --------------------------------------------------------
 
@@ -334,7 +339,7 @@ CREATE TABLE `utilisateur` (
   `IDutilisateur` int NOT NULL,
   `NomUtilisateur` varchar(32) CHARACTER SET utf8mb3 COLLATE utf8mb3_bin NOT NULL,
   `AdresseMailUtilisateur` varchar(64) CHARACTER SET utf8mb3 COLLATE utf8mb3_bin NOT NULL,
-  `MdpUtilisateur` varchar(32) CHARACTER SET utf8mb3 COLLATE utf8mb3_bin NOT NULL,
+  `MdpUtilisateur` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_bin NOT NULL,
   `AdresseUtilisateur` varchar(128) CHARACTER SET utf8mb3 COLLATE utf8mb3_bin NOT NULL,
   `CpUtilisateur` int NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_bin;
@@ -344,7 +349,8 @@ CREATE TABLE `utilisateur` (
 --
 
 INSERT INTO `utilisateur` (`IDutilisateur`, `NomUtilisateur`, `AdresseMailUtilisateur`, `MdpUtilisateur`, `AdresseUtilisateur`, `CpUtilisateur`) VALUES
-(1, 'John', 'johndoe@gmail.com', 'password', '69 rue Gaston Berger', 59000);
+(1, 'John', 'johndoe@gmail.com', 'password', '69 rue Gaston Berger', 59000),
+(3, 'Vanreust', 'florianvanreust@gmail.com', 'b8fe7b5bf0edd635fa2f6e2602664a89d18b22f7898a31fb565305406170809b', '9 sur 10 rue charles van de veegaete', 59200);
 
 --
 -- Index pour les tables déchargées
@@ -433,6 +439,12 @@ ALTER TABLE `type`
   ADD PRIMARY KEY (`codeCategorie`,`numType`);
 
 --
+-- Index pour la table `utilisateur`
+--
+ALTER TABLE `utilisateur`
+  ADD PRIMARY KEY (`IDutilisateur`);
+
+--
 -- AUTO_INCREMENT pour les tables déchargées
 --
 
@@ -446,13 +458,19 @@ ALTER TABLE `bateau`
 -- AUTO_INCREMENT pour la table `reservation`
 --
 ALTER TABLE `reservation`
-  MODIFY `numReservation` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `numReservation` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT pour la table `traversee`
 --
 ALTER TABLE `traversee`
-  MODIFY `numTraversee` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `numTraversee` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT pour la table `utilisateur`
+--
+ALTER TABLE `utilisateur`
+  MODIFY `IDutilisateur` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Contraintes pour les tables déchargées

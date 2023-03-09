@@ -12,12 +12,11 @@
 
 .logoNavbar {
     padding: 20px 0 10px 20px;
-    ;
+    transition: 0.7s;
     margin-right: auto;
 }
 
 .logoNavbar:hover {
-    border-radius: 50%;
     transition: 0.7s;
     transform: scale(1.2);
 }
