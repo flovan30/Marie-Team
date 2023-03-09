@@ -1,5 +1,9 @@
 <!DOCTYPE html>
 <html lang="fr">
+<?php 
+include_once "$racine/modele/connexion.inc.php";
+include_once "$racine/modele/bd.utilisateur.inc.php";
+?>
 
 <head>
     <meta charset="UTF-8">
@@ -7,9 +11,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Marie-Team</title>
     <style>
-        @import url("css/navbar.css");
-        @import url("css/corpsAccueil.css");
-        @import url("css/footer.css");
+        @import url("css/navbar.css?v=1");
+        @import url("css/corpsAccueil.css?v=1");
+        @import url("css/footer.css?v=1");
     </style>
 </head>
 
@@ -23,7 +27,23 @@
                 <li><a href="./?action=accueil">Accueil</a></li>
                 <li><a href="./?action=destination">Destination</a></li>
                 <li><a href="./?action=tarifs">Nos tarifs</a></li>
-                <li><a href="./?action=connexion"><img class="imgpro" src="images/connexion.png" alt="profil" /></a></li>
+                <?php 
+
+                $mail = getMailLoggedOn();
+                $util = getUtilisateurByMail($mail);
+
+                if (!empty($util) ) { 
+                $username = $_SESSION['NomUtilisateur'];
+
+                $first_letter = strtoupper(substr($username, 0, 1));
+
+
+                echo "<a class='avatar' href='./?action=connexion'>" . $first_letter . "</a>";
+                }
+                else {
+                    echo '<li><a href="./?action=connexion"><img class="imgpro" src="images/connexion.png" alt="profil" /></a></li>';
+                }
+                ?>
             </div>
         </ul>
     </nav>

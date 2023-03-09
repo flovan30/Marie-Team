@@ -21,6 +21,24 @@
     transform: scale(1.2);
 }
 
+.avatar {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background-color: #ccc;
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    line-height: 50px;
+    text-decoration: none;
+    color: black;
+}
+
+
+
 .logoNavbar img {
     width: 70px;
 }

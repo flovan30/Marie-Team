@@ -10,9 +10,11 @@ function login($mail, $mdp) {
 
     $util = getUtilisateurByMail($mail);
     $mdpBD = $util["MdpUtilisateur"];
+    $user = $util["NomUtilisateur"];
     if (($mdpBD) == hash('sha256' , $mdp)) {
         $_SESSION["AdresseMailUtilisateur"] = $mail;
         $_SESSION["MdpUtilisateur"] = $mdpBD;
+        $_SESSION["NomUtilisateur"] = $user;
     }
 }
 
@@ -25,6 +27,7 @@ function logout() {
     }
     unset($_SESSION["AdresseMailUtilisateur"]);
     unset($_SESSION["MdpUtilisateur"]);
+    unset($_SESSION["NomUtilisateur"]);
 }
 
 function getMailLoggedOn(){
