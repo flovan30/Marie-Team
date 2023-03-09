@@ -1,0 +1,104 @@
+.table {
+    display: flex;
+    background-color: #DFEBF2;
+}
+
+.boxgauche {
+    width: 20%;
+    position: relative;
+    background-color: white;
+    overflow: hidden;
+    margin: 0 10% 0 15%;
+    text-align: center;
+}
+
+.boxdroite {
+    width: 50%;
+}
+
+.blocprofil {
+    background-color: white;
+    margin: 20px;
+}
+
+.titreboxgauche {
+    padding: 20px;
+    text-decoration: underline;
+}
+
+.titrenavprofil {
+    font-size: 20px;
+    padding: 20px;
+    border-top: solid 2px black;
+    border-bottom: solid 2px black;
+    font-weight: bold;
+
+}
+
+.titrenavprofil a {
+    text-decoration: none;
+    color: black;
+}
+
+.deconnexionbutton {
+    bottom: 0;
+    position: absolute;
+    border-top: solid 2px black;
+    border-bottom: solid 2px black;
+    text-align: center;
+    width: 100%;
+    font-size: 20px;
+    padding: 20px;
+}
+
+.deconnexionbutton a {
+    text-decoration: none;
+    color: black;
+}
+
+.nom {
+    padding: 18px 30px;
+    border-bottom: solid 2px;
+}
+
+.mail {
+    padding: 18px 30px;
+}
+
+.cp {
+    padding: 18px 30px;
+    border-bottom: solid 2px;
+}
+
+.adresse {
+    padding: 18px 30px;
+    border-bottom: solid 2px;
+}
+
+.numreserve {
+    padding: 18px 30px;
+    border-bottom: solid 2px;
+}
+
+.liaison {
+    padding: 18px 30px;
+    border-bottom: solid 2px;
+}
+
+.prix {
+    padding: 18px 30px;
+    border-bottom: solid 2px;
+}
+
+.reserve {
+    padding: 18px 30px;
+}
+
+.blocprofil {
+    border-radius: 5px;
+    font-size: 20px;
+}
+
+.titreboxdroite {
+    padding: 20px 0 0 0;
+}

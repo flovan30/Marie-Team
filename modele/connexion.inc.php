@@ -3,25 +3,23 @@
 include "bd.utilisateur.inc.php";
 
 
-function login($mail, $mdp)
-{
+function login($mail, $mdp) {
     if (!isset($_SESSION)) {
         session_start();
     }
 
     $util = getUtilisateurByMail($mail);
     $mdpBD = $util["MdpUtilisateur"];
-    if (($mdpBD) == hash('sha256', $mdp)) {
+    if (($mdpBD) == hash('sha256' , $mdp)) {
         $_SESSION["AdresseMailUtilisateur"] = $mail;
         $_SESSION["MdpUtilisateur"] = $mdpBD;
     }
 }
 
+   
 
 
-
-function logout()
-{
+function logout() {
     if (!isset($_SESSION)) {
         session_start();
     }
@@ -29,27 +27,26 @@ function logout()
     unset($_SESSION["MdpUtilisateur"]);
 }
 
-
-function getMailLoggedOn()
-{
-    if (isLoggedOn()) {
+function getMailLoggedOn(){
+    if (isLoggedOn()){
         $ret = $_SESSION["AdresseMailUtilisateur"];
-    } else {
+    }
+    else {
         $ret = "";
     }
     return $ret;
+        
 }
 
-function isLoggedOn()
-{
+function isLoggedOn() {
     if (!isset($_SESSION)) {
         session_start();
     }
     $ret = false;
+
     if (isset($_SESSION["AdresseMailUtilisateur"])) {
         $util = getUtilisateurByMail($_SESSION["AdresseMailUtilisateur"]);
-        if (
-            $util["AdresseMailUtilisateur"] == $_SESSION["AdresseMailUtilisateur"] && $util["MdpUtilisateur"] == $_SESSION["MdpUtilisateur"]
+        if ($util["AdresseMailUtilisateur"] == $_SESSION["AdresseMailUtilisateur"] && $util["MdpUtilisateur"] == $_SESSION["MdpUtilisateur"]
         ) {
             $ret = true;
         }
@@ -73,3 +70,4 @@ if ($_SERVER["SCRIPT_FILENAME"] == __FILE__) {
     // deconnexion
     logout();
 }
+?>
