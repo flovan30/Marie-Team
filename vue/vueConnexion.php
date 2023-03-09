@@ -15,7 +15,7 @@
             <br>
             <input class="buttonLogin loginSubmit" type="submit" value="CONNEXION"/><br><br>
         </form>
-        <button class="buttonLogin signInButton"><a href="./?action=inscription">INSCRIPTION</a></button><br><br><br><br>
+        <a href="./?action=inscription"><button class="buttonLogin signInButton">INSCRIPTION</button></a><br><br><br><br>
         <a class="leaveButton" href="./?action=defaut">Retour a l'accueil</a><br>
     </div>  
 

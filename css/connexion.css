@@ -54,7 +54,7 @@ div {
     text-align: center;
     padding: 12px 32px;
     height: 32px;
-    color: #fff;
+    color: #000000;
 }
 
 .boxLogin .buttonLogin:hover {
@@ -64,10 +64,6 @@ div {
 
 .loginSubmit {
     background-color: #1ED760;
-}
-
-.signInButton {
-    background-color: #ffffff;
 }
 
 .textInputLogin {

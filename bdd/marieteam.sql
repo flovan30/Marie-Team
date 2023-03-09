@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost:3306
--- Généré le : jeu. 09 mars 2023 à 08:38
+-- Généré le : mer. 01 mars 2023 à 07:27
 -- Version du serveur : 8.0.30
 -- Version de PHP : 8.1.10
 
@@ -465,6 +465,12 @@ ALTER TABLE `reservation`
 --
 ALTER TABLE `traversee`
   MODIFY `numTraversee` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT pour la table `utilisateur`
+--
+ALTER TABLE `utilisateur`
+  MODIFY `IDutilisateur` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT pour la table `utilisateur`
