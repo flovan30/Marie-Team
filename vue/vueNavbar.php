@@ -15,6 +15,7 @@ include_once "$racine/modele/bd.utilisateur.inc.php";
         @import url("css/corpsAccueil.css?v=1");
         @import url("css/footer.css?v=1");
     </style>
+    
 </head>
 
 <body>
@@ -38,12 +39,27 @@ include_once "$racine/modele/bd.utilisateur.inc.php";
                 $first_letter = strtoupper(substr($username, 0, 1));
 
 
-                echo "<a class='avatar' href='./?action=connexion'>" . $first_letter . "</a>";
+                echo "<div class='pdpnavbar'><a href='#' class='menu-button'>" . $first_letter . '</a>
+                    <nav>
+                    <ul class="menu-links">
+                        <li><a href="./?action=connexion">Profil</a></li>
+                        <li><a href="#">Panel</a></li>
+                    </ul>
+                    </nav>
+                    </div>';
+                
                 }
                 else {
-                    echo '<li><a href="./?action=connexion"><img class="imgpro" src="images/connexion.png" alt="profil" /></a></li>';
+                    echo '<div class="pdpnavbar"><li><a href="./?action=connexion"><img class="imgpro" src="images/connexion.png" alt="profil" /></a></li></div>';
                 }
                 ?>
+                <script>
+     const menuButton = document.querySelector('.menu-button');
+    const menuLinks = document.querySelector('.menu-links');
+  menuButton.addEventListener('click', function() {
+    menuLinks.classList.toggle('show-menu');
+  });
+</script>
             </div>
         </ul>
     </nav>
