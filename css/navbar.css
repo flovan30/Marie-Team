@@ -48,6 +48,7 @@
     background-color: white;
     list-style: none;
     position: absolute;
+    z-index: 3;
 }
 
 .menu-links.show-menu a {
