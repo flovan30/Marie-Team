@@ -2,10 +2,10 @@
 -- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Hôte : localhost:3306
--- Généré le : mer. 01 mars 2023 à 07:27
--- Version du serveur : 8.0.30
--- Version de PHP : 8.1.10
+-- Hôte : 127.0.0.1:3306
+-- Généré le : lun. 13 mars 2023 à 14:23
+-- Version du serveur : 8.0.31
+-- Version de PHP : 8.0.26
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -27,10 +27,12 @@ SET time_zone = "+00:00";
 -- Structure de la table `bateau`
 --
 
-CREATE TABLE `bateau` (
-  `idBateau` int NOT NULL,
-  `nomBateau` varchar(50) COLLATE utf8mb3_bin NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_bin;
+DROP TABLE IF EXISTS `bateau`;
+CREATE TABLE IF NOT EXISTS `bateau` (
+  `idBateau` int NOT NULL AUTO_INCREMENT,
+  `nomBateau` varchar(50) CHARACTER SET utf8mb3 COLLATE utf8mb3_bin NOT NULL,
+  PRIMARY KEY (`idBateau`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_bin;
 
 --
 -- Déchargement des données de la table `bateau`
@@ -49,9 +51,11 @@ INSERT INTO `bateau` (`idBateau`, `nomBateau`) VALUES
 -- Structure de la table `categorie`
 --
 
-CREATE TABLE `categorie` (
+DROP TABLE IF EXISTS `categorie`;
+CREATE TABLE IF NOT EXISTS `categorie` (
   `codeCategorie` char(50) CHARACTER SET utf8mb3 COLLATE utf8mb3_bin NOT NULL,
-  `libelleCategorie` varchar(65) COLLATE utf8mb3_bin NOT NULL
+  `libelleCategorie` varchar(65) CHARACTER SET utf8mb3 COLLATE utf8mb3_bin NOT NULL,
+  PRIMARY KEY (`codeCategorie`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_bin;
 
 --
@@ -69,10 +73,13 @@ INSERT INTO `categorie` (`codeCategorie`, `libelleCategorie`) VALUES
 -- Structure de la table `contenir`
 --
 
-CREATE TABLE `contenir` (
-  `codeCategorie` varchar(50) COLLATE utf8mb3_bin NOT NULL,
+DROP TABLE IF EXISTS `contenir`;
+CREATE TABLE IF NOT EXISTS `contenir` (
+  `codeCategorie` varchar(50) CHARACTER SET utf8mb3 COLLATE utf8mb3_bin NOT NULL,
   `idBateau` int NOT NULL,
-  `capacitéMax` int NOT NULL
+  `capacitéMax` int NOT NULL,
+  PRIMARY KEY (`codeCategorie`,`idBateau`),
+  KEY `idBateau` (`idBateau`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_bin;
 
 --
@@ -102,11 +109,14 @@ INSERT INTO `contenir` (`codeCategorie`, `idBateau`, `capacitéMax`) VALUES
 -- Structure de la table `enregistrer`
 --
 
-CREATE TABLE `enregistrer` (
-  `codeCategorie` varchar(50) COLLATE utf8mb3_bin NOT NULL,
+DROP TABLE IF EXISTS `enregistrer`;
+CREATE TABLE IF NOT EXISTS `enregistrer` (
+  `codeCategorie` varchar(50) CHARACTER SET utf8mb3 COLLATE utf8mb3_bin NOT NULL,
   `numType` int NOT NULL,
   `numReservation` int NOT NULL,
-  `quantité` int DEFAULT NULL
+  `quantité` int DEFAULT NULL,
+  PRIMARY KEY (`codeCategorie`,`numType`,`numReservation`),
+  KEY `numReservation` (`numReservation`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_bin;
 
 --
@@ -132,12 +142,17 @@ INSERT INTO `enregistrer` (`codeCategorie`, `numType`, `numReservation`, `quanti
 -- Structure de la table `liaison`
 --
 
-CREATE TABLE `liaison` (
+DROP TABLE IF EXISTS `liaison`;
+CREATE TABLE IF NOT EXISTS `liaison` (
   `codeLiaison` int NOT NULL,
   `distanceLiaison` int NOT NULL,
   `idPort` int NOT NULL,
   `idPort_1` int NOT NULL,
-  `idSecteur` int NOT NULL
+  `idSecteur` int NOT NULL,
+  PRIMARY KEY (`codeLiaison`),
+  KEY `idPort` (`idPort`),
+  KEY `idPort_1` (`idPort_1`),
+  KEY `idSecteur` (`idSecteur`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_bin;
 
 --
@@ -162,10 +177,12 @@ INSERT INTO `liaison` (`codeLiaison`, `distanceLiaison`, `idPort`, `idPort_1`, `
 -- Structure de la table `periode`
 --
 
-CREATE TABLE `periode` (
-  `idPeriode` varchar(50) COLLATE utf8mb3_bin NOT NULL,
+DROP TABLE IF EXISTS `periode`;
+CREATE TABLE IF NOT EXISTS `periode` (
+  `idPeriode` varchar(50) CHARACTER SET utf8mb3 COLLATE utf8mb3_bin NOT NULL,
   `dateDebutPeriode` date NOT NULL,
-  `dateFinPeriode` date NOT NULL
+  `dateFinPeriode` date NOT NULL,
+  PRIMARY KEY (`idPeriode`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_bin;
 
 --
@@ -183,9 +200,11 @@ INSERT INTO `periode` (`idPeriode`, `dateDebutPeriode`, `dateFinPeriode`) VALUES
 -- Structure de la table `port`
 --
 
-CREATE TABLE `port` (
+DROP TABLE IF EXISTS `port`;
+CREATE TABLE IF NOT EXISTS `port` (
   `idPort` int NOT NULL,
-  `nomPort` varchar(32) COLLATE utf8mb3_bin NOT NULL
+  `nomPort` varchar(32) CHARACTER SET utf8mb3 COLLATE utf8mb3_bin NOT NULL,
+  PRIMARY KEY (`idPort`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_bin;
 
 --
@@ -207,14 +226,17 @@ INSERT INTO `port` (`idPort`, `nomPort`) VALUES
 -- Structure de la table `reservation`
 --
 
-CREATE TABLE `reservation` (
-  `numReservation` int NOT NULL,
-  `nomReservation` varchar(32) COLLATE utf8mb3_bin NOT NULL,
+DROP TABLE IF EXISTS `reservation`;
+CREATE TABLE IF NOT EXISTS `reservation` (
+  `numReservation` int NOT NULL AUTO_INCREMENT,
+  `nomReservation` varchar(32) CHARACTER SET utf8mb3 COLLATE utf8mb3_bin NOT NULL,
   `adresseReservation` varchar(254) CHARACTER SET utf8mb3 COLLATE utf8mb3_bin NOT NULL,
-  `cpReservation` varchar(5) COLLATE utf8mb3_bin NOT NULL,
-  `villeReservation` varchar(40) COLLATE utf8mb3_bin NOT NULL,
-  `numTraversee` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_bin;
+  `cpReservation` varchar(5) CHARACTER SET utf8mb3 COLLATE utf8mb3_bin NOT NULL,
+  `villeReservation` varchar(40) CHARACTER SET utf8mb3 COLLATE utf8mb3_bin NOT NULL,
+  `numTraversee` int NOT NULL,
+  PRIMARY KEY (`numReservation`),
+  KEY `numTraversee` (`numTraversee`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_bin;
 
 --
 -- Déchargement des données de la table `reservation`
@@ -230,9 +252,11 @@ INSERT INTO `reservation` (`numReservation`, `nomReservation`, `adresseReservati
 -- Structure de la table `secteur`
 --
 
-CREATE TABLE `secteur` (
+DROP TABLE IF EXISTS `secteur`;
+CREATE TABLE IF NOT EXISTS `secteur` (
   `idSecteur` int NOT NULL,
-  `nomSecteur` varchar(32) COLLATE utf8mb3_bin NOT NULL
+  `nomSecteur` varchar(32) CHARACTER SET utf8mb3 COLLATE utf8mb3_bin NOT NULL,
+  PRIMARY KEY (`idSecteur`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_bin;
 
 --
@@ -257,12 +281,16 @@ INSERT INTO `secteur` (`idSecteur`, `nomSecteur`) VALUES
 -- Structure de la table `tarifer`
 --
 
-CREATE TABLE `tarifer` (
+DROP TABLE IF EXISTS `tarifer`;
+CREATE TABLE IF NOT EXISTS `tarifer` (
   `codeLiaison` int NOT NULL,
-  `idPeriode` varchar(50) COLLATE utf8mb3_bin NOT NULL,
+  `idPeriode` varchar(50) CHARACTER SET utf8mb3 COLLATE utf8mb3_bin NOT NULL,
   `codeCategorie` char(50) CHARACTER SET utf8mb3 COLLATE utf8mb3_bin NOT NULL,
   `numType` int NOT NULL,
-  `prix` decimal(10,0) DEFAULT NULL
+  `prix` decimal(10,0) DEFAULT NULL,
+  PRIMARY KEY (`codeLiaison`,`idPeriode`,`codeCategorie`,`numType`),
+  KEY `idPeriode` (`idPeriode`),
+  KEY `codeCategorie` (`codeCategorie`,`numType`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_bin;
 
 --
@@ -270,14 +298,198 @@ CREATE TABLE `tarifer` (
 --
 
 INSERT INTO `tarifer` (`codeLiaison`, `idPeriode`, `codeCategorie`, `numType`, `prix`) VALUES
+(1, '1', 'A', 1, '22'),
+(1, '1', 'A', 2, '15'),
+(1, '1', 'A', 3, '9'),
+(1, '1', 'B', 1, '100'),
+(1, '1', 'B', 2, '149'),
+(1, '1', 'C', 1, '257'),
+(1, '1', 'C', 2, '389'),
+(1, '1', 'C', 3, '409'),
+(1, '2', 'A', 1, '11'),
+(1, '2', 'A', 2, '9'),
+(1, '2', 'A', 3, '4'),
+(1, '2', 'B', 1, '101'),
+(1, '2', 'B', 2, '178'),
+(1, '2', 'C', 1, '239'),
+(1, '2', 'C', 2, '294'),
+(1, '2', 'C', 3, '347'),
 (1, '3', 'A', 1, '19'),
-(1, '3', 'A', 2, '12'),
+(1, '3', 'A', 2, '13'),
 (1, '3', 'A', 3, '6'),
 (1, '3', 'B', 1, '91'),
 (1, '3', 'B', 2, '136'),
 (1, '3', 'C', 1, '199'),
 (1, '3', 'C', 2, '216'),
-(1, '3', 'C', 3, '282');
+(1, '3', 'C', 3, '282'),
+(2, '1', 'A', 1, '26'),
+(2, '1', 'A', 2, '12'),
+(2, '1', 'A', 3, '6'),
+(2, '1', 'B', 1, '93'),
+(2, '1', 'B', 2, '149'),
+(2, '1', 'C', 1, '173'),
+(2, '1', 'C', 2, '300'),
+(2, '1', 'C', 3, '428'),
+(2, '2', 'A', 1, '23'),
+(2, '2', 'A', 2, '10'),
+(2, '2', 'A', 3, '7'),
+(2, '2', 'B', 1, '88'),
+(2, '2', 'B', 2, '139'),
+(2, '2', 'C', 1, '187'),
+(2, '2', 'C', 2, '304'),
+(2, '2', 'C', 3, '445'),
+(2, '3', 'A', 1, '27'),
+(2, '3', 'A', 2, '17'),
+(2, '3', 'A', 3, '11'),
+(2, '3', 'B', 1, '101'),
+(2, '3', 'B', 2, '157'),
+(2, '3', 'C', 1, '201'),
+(2, '3', 'C', 2, '306'),
+(2, '3', 'C', 3, '498'),
+(3, '1', 'A', 1, '12'),
+(3, '1', 'A', 2, '9'),
+(3, '1', 'A', 3, '3'),
+(3, '1', 'B', 1, '81'),
+(3, '1', 'B', 2, '129'),
+(3, '1', 'C', 1, '156'),
+(3, '1', 'C', 2, '264'),
+(3, '1', 'C', 3, '392'),
+(3, '2', 'A', 1, '13'),
+(3, '2', 'A', 2, '9'),
+(3, '2', 'A', 3, '6'),
+(3, '2', 'B', 1, '72'),
+(3, '2', 'B', 2, '111'),
+(3, '2', 'C', 1, '162'),
+(3, '2', 'C', 2, '277'),
+(3, '2', 'C', 3, '333'),
+(3, '3', 'A', 1, '14'),
+(3, '3', 'A', 2, '8'),
+(3, '3', 'A', 3, '3'),
+(3, '3', 'B', 1, '77'),
+(3, '3', 'B', 2, '145'),
+(3, '3', 'C', 1, '193'),
+(3, '3', 'C', 2, '279'),
+(3, '3', 'C', 3, '347'),
+(4, '1', 'A', 1, '19'),
+(4, '1', 'A', 2, '16'),
+(4, '1', 'A', 3, '11'),
+(4, '1', 'B', 1, '143'),
+(4, '1', 'B', 2, '158'),
+(4, '1', 'C', 1, '198'),
+(4, '1', 'C', 2, '330'),
+(4, '1', 'C', 3, '495'),
+(4, '2', 'A', 1, '22'),
+(4, '2', 'A', 2, '19'),
+(4, '2', 'A', 3, '15'),
+(4, '2', 'B', 1, '150'),
+(4, '2', 'B', 2, '200'),
+(4, '2', 'C', 1, '210'),
+(4, '2', 'C', 2, '308'),
+(4, '2', 'C', 3, '406'),
+(4, '3', 'A', 1, '22'),
+(4, '3', 'A', 2, '17'),
+(4, '3', 'A', 3, '17'),
+(4, '3', 'B', 1, '110'),
+(4, '3', 'B', 2, '198'),
+(4, '3', 'C', 1, '250'),
+(4, '3', 'C', 2, '301'),
+(4, '3', 'C', 3, '459'),
+(5, '1', 'A', 1, '27'),
+(5, '1', 'A', 2, '17'),
+(5, '1', 'A', 3, '10'),
+(5, '1', 'B', 1, '129'),
+(5, '1', 'B', 2, '194'),
+(5, '1', 'C', 1, '284'),
+(5, '1', 'C', 2, '308'),
+(5, '1', 'C', 3, '402'),
+(5, '2', 'A', 1, '30'),
+(5, '2', 'A', 2, '19'),
+(5, '2', 'A', 3, '10'),
+(5, '2', 'B', 1, '130'),
+(5, '2', 'B', 2, '200'),
+(5, '2', 'C', 1, '300'),
+(5, '2', 'C', 2, '350'),
+(5, '2', 'C', 3, '400'),
+(5, '3', 'A', 1, '31'),
+(5, '3', 'A', 2, '25'),
+(5, '3', 'A', 3, '16'),
+(5, '3', 'B', 1, '150'),
+(5, '3', 'B', 2, '200'),
+(5, '3', 'C', 1, '269'),
+(5, '3', 'C', 2, '394'),
+(5, '3', 'C', 3, '486'),
+(6, '1', 'A', 1, '14'),
+(6, '1', 'A', 2, '8'),
+(6, '1', 'A', 3, '3'),
+(6, '1', 'B', 1, '77'),
+(6, '1', 'B', 2, '145'),
+(6, '1', 'C', 1, '193'),
+(6, '1', 'C', 2, '279'),
+(6, '1', 'C', 3, '347'),
+(6, '2', 'A', 1, '19'),
+(6, '2', 'A', 2, '16'),
+(6, '2', 'A', 3, '11'),
+(6, '2', 'B', 1, '143'),
+(6, '2', 'B', 2, '158'),
+(6, '2', 'C', 1, '198'),
+(6, '2', 'C', 2, '330'),
+(6, '2', 'C', 3, '495'),
+(6, '3', 'A', 1, '22'),
+(6, '3', 'A', 2, '19'),
+(6, '3', 'A', 3, '15'),
+(6, '3', 'B', 1, '150'),
+(6, '3', 'B', 2, '200'),
+(6, '3', 'C', 1, '210'),
+(6, '3', 'C', 2, '308'),
+(6, '3', 'C', 3, '406'),
+(7, '1', 'A', 1, '11'),
+(7, '1', 'A', 2, '9'),
+(7, '1', 'A', 3, '4'),
+(7, '1', 'B', 1, '101'),
+(7, '1', 'B', 2, '178'),
+(7, '1', 'C', 1, '239'),
+(7, '1', 'C', 2, '294'),
+(7, '1', 'C', 3, '347'),
+(7, '2', 'A', 1, '19'),
+(7, '2', 'A', 2, '13'),
+(7, '2', 'A', 3, '6'),
+(7, '2', 'B', 1, '91'),
+(7, '2', 'B', 2, '136'),
+(7, '2', 'C', 1, '199'),
+(7, '2', 'C', 2, '216'),
+(7, '2', 'C', 3, '282'),
+(7, '3', 'A', 1, '26'),
+(7, '3', 'A', 2, '12'),
+(7, '3', 'A', 3, '6'),
+(7, '3', 'B', 1, '93'),
+(7, '3', 'B', 2, '149'),
+(7, '3', 'C', 1, '173'),
+(7, '3', 'C', 2, '300'),
+(7, '3', 'C', 3, '428'),
+(8, '1', 'A', 1, '30'),
+(8, '1', 'A', 2, '19'),
+(8, '1', 'A', 3, '10'),
+(8, '1', 'B', 1, '130'),
+(8, '1', 'B', 2, '200'),
+(8, '1', 'C', 1, '300'),
+(8, '1', 'C', 2, '350'),
+(8, '1', 'C', 3, '400'),
+(8, '2', 'A', 1, '31'),
+(8, '2', 'A', 2, '25'),
+(8, '2', 'A', 3, '16'),
+(8, '2', 'B', 1, '150'),
+(8, '2', 'B', 2, '200'),
+(8, '2', 'C', 1, '269'),
+(8, '2', 'C', 2, '394'),
+(8, '2', 'C', 3, '486'),
+(8, '3', 'A', 1, '14'),
+(8, '3', 'A', 2, '8'),
+(8, '3', 'A', 3, '3'),
+(8, '3', 'B', 1, '77'),
+(8, '3', 'B', 2, '145'),
+(8, '3', 'C', 1, '193'),
+(8, '3', 'C', 2, '279'),
+(8, '3', 'C', 3, '347');
 
 -- --------------------------------------------------------
 
@@ -285,13 +497,17 @@ INSERT INTO `tarifer` (`codeLiaison`, `idPeriode`, `codeCategorie`, `numType`, `
 -- Structure de la table `traversee`
 --
 
-CREATE TABLE `traversee` (
-  `numTraversee` int NOT NULL,
+DROP TABLE IF EXISTS `traversee`;
+CREATE TABLE IF NOT EXISTS `traversee` (
+  `numTraversee` int NOT NULL AUTO_INCREMENT,
   `dateTraversee` date NOT NULL,
   `heureDepartTraversee` time NOT NULL,
   `idBateau` int NOT NULL,
-  `codeLiaison` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_bin;
+  `codeLiaison` int NOT NULL,
+  PRIMARY KEY (`numTraversee`),
+  KEY `idBateau` (`idBateau`),
+  KEY `codeLiaison` (`codeLiaison`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_bin;
 
 --
 -- Déchargement des données de la table `traversee`
@@ -300,8 +516,7 @@ CREATE TABLE `traversee` (
 INSERT INTO `traversee` (`numTraversee`, `dateTraversee`, `heureDepartTraversee`, `idBateau`, `codeLiaison`) VALUES
 (1, '2023-12-29', '14:30:00', 4, 1),
 (2, '2022-12-29', '14:00:00', 1, 7),
-(3, '2023-12-29', '16:30:00', 1, 1),
-(4, '2023-12-29', '20:30:00', 5, 1);
+(3, '2023-12-29', '16:30:00', 5, 1);
 
 -- --------------------------------------------------------
 
@@ -309,10 +524,12 @@ INSERT INTO `traversee` (`numTraversee`, `dateTraversee`, `heureDepartTraversee`
 -- Structure de la table `type`
 --
 
-CREATE TABLE `type` (
+DROP TABLE IF EXISTS `type`;
+CREATE TABLE IF NOT EXISTS `type` (
   `codeCategorie` char(50) CHARACTER SET utf8mb3 COLLATE utf8mb3_bin NOT NULL,
   `numType` int NOT NULL,
-  `libelleType` varchar(50) COLLATE utf8mb3_bin NOT NULL
+  `libelleType` varchar(50) CHARACTER SET utf8mb3 COLLATE utf8mb3_bin NOT NULL,
+  PRIMARY KEY (`codeCategorie`,`numType`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_bin;
 
 --
@@ -335,148 +552,26 @@ INSERT INTO `type` (`codeCategorie`, `numType`, `libelleType`) VALUES
 -- Structure de la table `utilisateur`
 --
 
-CREATE TABLE `utilisateur` (
-  `IDutilisateur` int NOT NULL,
+DROP TABLE IF EXISTS `utilisateur`;
+CREATE TABLE IF NOT EXISTS `utilisateur` (
+  `IDutilisateur` int NOT NULL AUTO_INCREMENT,
   `NomUtilisateur` varchar(32) CHARACTER SET utf8mb3 COLLATE utf8mb3_bin NOT NULL,
   `AdresseMailUtilisateur` varchar(64) CHARACTER SET utf8mb3 COLLATE utf8mb3_bin NOT NULL,
   `MdpUtilisateur` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_bin NOT NULL,
   `AdresseUtilisateur` varchar(128) CHARACTER SET utf8mb3 COLLATE utf8mb3_bin NOT NULL,
-  `CpUtilisateur` int NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_bin;
+  `CpUtilisateur` int NOT NULL,
+  `RoleUtilisateur` int DEFAULT NULL,
+  PRIMARY KEY (`IDutilisateur`)
+) ENGINE=MyISAM AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_bin;
 
 --
 -- Déchargement des données de la table `utilisateur`
 --
 
-INSERT INTO `utilisateur` (`IDutilisateur`, `NomUtilisateur`, `AdresseMailUtilisateur`, `MdpUtilisateur`, `AdresseUtilisateur`, `CpUtilisateur`) VALUES
-(1, 'John', 'johndoe@gmail.com', 'password', '69 rue Gaston Berger', 59000),
-(3, 'Vanreust', 'florianvanreust@gmail.com', 'b8fe7b5bf0edd635fa2f6e2602664a89d18b22f7898a31fb565305406170809b', '9 sur 10 rue charles van de veegaete', 59200);
-
---
--- Index pour les tables déchargées
---
-
---
--- Index pour la table `bateau`
---
-ALTER TABLE `bateau`
-  ADD PRIMARY KEY (`idBateau`);
-
---
--- Index pour la table `categorie`
---
-ALTER TABLE `categorie`
-  ADD PRIMARY KEY (`codeCategorie`);
-
---
--- Index pour la table `contenir`
---
-ALTER TABLE `contenir`
-  ADD PRIMARY KEY (`codeCategorie`,`idBateau`),
-  ADD KEY `idBateau` (`idBateau`);
-
---
--- Index pour la table `enregistrer`
---
-ALTER TABLE `enregistrer`
-  ADD PRIMARY KEY (`codeCategorie`,`numType`,`numReservation`),
-  ADD KEY `numReservation` (`numReservation`);
-
---
--- Index pour la table `liaison`
---
-ALTER TABLE `liaison`
-  ADD PRIMARY KEY (`codeLiaison`),
-  ADD KEY `idPort` (`idPort`),
-  ADD KEY `idPort_1` (`idPort_1`),
-  ADD KEY `idSecteur` (`idSecteur`);
-
---
--- Index pour la table `periode`
---
-ALTER TABLE `periode`
-  ADD PRIMARY KEY (`idPeriode`);
-
---
--- Index pour la table `port`
---
-ALTER TABLE `port`
-  ADD PRIMARY KEY (`idPort`);
-
---
--- Index pour la table `reservation`
---
-ALTER TABLE `reservation`
-  ADD PRIMARY KEY (`numReservation`),
-  ADD KEY `numTraversee` (`numTraversee`);
-
---
--- Index pour la table `secteur`
---
-ALTER TABLE `secteur`
-  ADD PRIMARY KEY (`idSecteur`);
-
---
--- Index pour la table `tarifer`
---
-ALTER TABLE `tarifer`
-  ADD PRIMARY KEY (`codeLiaison`,`idPeriode`,`codeCategorie`,`numType`),
-  ADD KEY `idPeriode` (`idPeriode`),
-  ADD KEY `codeCategorie` (`codeCategorie`,`numType`);
-
---
--- Index pour la table `traversee`
---
-ALTER TABLE `traversee`
-  ADD PRIMARY KEY (`numTraversee`),
-  ADD KEY `idBateau` (`idBateau`),
-  ADD KEY `codeLiaison` (`codeLiaison`);
-
---
--- Index pour la table `type`
---
-ALTER TABLE `type`
-  ADD PRIMARY KEY (`codeCategorie`,`numType`);
-
---
--- Index pour la table `utilisateur`
---
-ALTER TABLE `utilisateur`
-  ADD PRIMARY KEY (`IDutilisateur`);
-
---
--- AUTO_INCREMENT pour les tables déchargées
---
-
---
--- AUTO_INCREMENT pour la table `bateau`
---
-ALTER TABLE `bateau`
-  MODIFY `idBateau` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
---
--- AUTO_INCREMENT pour la table `reservation`
---
-ALTER TABLE `reservation`
-  MODIFY `numReservation` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- AUTO_INCREMENT pour la table `traversee`
---
-ALTER TABLE `traversee`
-  MODIFY `numTraversee` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
---
--- AUTO_INCREMENT pour la table `utilisateur`
---
-ALTER TABLE `utilisateur`
-  MODIFY `IDutilisateur` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
---
--- AUTO_INCREMENT pour la table `utilisateur`
---
-ALTER TABLE `utilisateur`
-  MODIFY `IDutilisateur` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+INSERT INTO `utilisateur` (`IDutilisateur`, `NomUtilisateur`, `AdresseMailUtilisateur`, `MdpUtilisateur`, `AdresseUtilisateur`, `CpUtilisateur`, `RoleUtilisateur`) VALUES
+(1, 'Utilisateur', 'utilisateur@gmail.com', 'df86714fc534e90b5ffa0726164516b16f207e7fb20a3b823be218c26c789f03', '42 avenue utilisateur', 14785, 0),
+(2, 'Technicien', 'technicien@gmail.com', 'df86714fc534e90b5ffa0726164516b16f207e7fb20a3b823be218c26c789f03', '42 rue technicien', 14785, 0),
+(3, 'Admin', 'admin@gmail.com', 'df86714fc534e90b5ffa0726164516b16f207e7fb20a3b823be218c26c789f03', '42 rue admin', 14785, 0);
 
 --
 -- Contraintes pour les tables déchargées
