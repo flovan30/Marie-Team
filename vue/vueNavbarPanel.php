@@ -3,12 +3,23 @@
 </style>
 <div class="sidebar">
     <div class="welcomeNav">
-        <p>profil : X </p>
+        <p>Profil : <?= $test = $util["NomUtilisateur"] ?></p>
     </div>
     <div class="titreNav">
         <p>Pannel</p>
         <div class="roleNav">
-        <p>Votre status : --Role--</p>
+        <p>Votre status : <?php  
+        if ($util["RoleUtilisateur"]=1) {
+            echo "Technicien";
+        }
+        elseif ($util["RoleUtilisateur"]=2) {
+            echo "Admin";
+        }
+        else {
+            echo "Qu'est tu fou ici";
+        }
+        
+        ?></p>
         </div>
     </div>
     

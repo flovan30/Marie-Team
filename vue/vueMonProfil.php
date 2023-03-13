@@ -22,7 +22,7 @@
     <div class="nom">Nom : <?= $util["NomUtilisateur"] ?></div>
     <div class="adresse">Adresse : <?= $util["AdresseUtilisateur"] ?> </div>
     <div class="cp">Code Postal : <?= $util["CpUtilisateur"] ?> </div>
-    <div class="mail">Email : <?= $util["AdresseMailUtilisateur"] ?> </div>
+    <div class="mail">Email : <?= $util["RoleUtilisateur"] ?> </div>
 </div>
 </div>
 
