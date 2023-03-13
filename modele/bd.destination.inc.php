@@ -68,7 +68,6 @@ function getPortById($idPort)
     return $resultat;
 }
 
-
 // ########## code logique destination commence ici ##############################
 function getTraverseeByCodeLiaisonAndDate($codeLiaison, $date)
 {

@@ -44,6 +44,7 @@
 
             <?php
         }
+        // pour trouver ça il faut une requete qui recupère le nom a partir du son ID 
         if (isset($_POST['liaison']) && isset($_POST['dateDestination'])) {
             $liaison = $_POST['liaison'];
             $date = $_POST['dateDestination'];
@@ -61,7 +62,11 @@
                     $button = "value='Reserver'";
                 }
             ?>
-                <h3>Num : <?= $traversee[$i]['numTraversee'] ?> | date : <?= $traversee[$i]['dateTraversee'] ?> à <?= $traversee[$i]['heureDepartTraversee'] ?> | Passager : <?= $nbPlacePassageeRestante ?> | Véh.inf.2m : <?= $nbPlaceVehiculeInf2mRestante ?> | Véh.sup.2m : <?= $nbPlaceVehiculeSup2mRestante ?> <form action="./?action=reservation" method="POST"><input type="hidden" name="numTraversee" value="<?= $traversee[$i]['numTraversee'] ?>"><input type="submit" <?= $button ?>></form>
+                <h3>Num : <?= $traversee[$i]['numTraversee'] ?> | date : <?= $traversee[$i]['dateTraversee'] ?> à <?= $traversee[$i]['heureDepartTraversee'] ?> | Passager : <?= $nbPlacePassageeRestante ?> | Véh.inf.2m : <?= $nbPlaceVehiculeInf2mRestante ?> | Véh.sup.2m : <?= $nbPlaceVehiculeSup2mRestante ?>
+                    <form action="./?action=reservation" method="POST">
+                        <input hidden type="number" name="numTraversee" value="<?= $traversee[$i]['numTraversee'] ?>">
+                        <input type="submit" <?= $button ?>>
+                    </form>
                 </h3>
         <?php
             }

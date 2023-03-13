@@ -5,12 +5,13 @@
 <main>
 
     <?php
-    // if isset idTraversee from vueAffichageDestination.php echo the idTraversee
+    // verification de si l'utilisateur a cliquer sur le boutton "Reserver" et est connecté
     if (isset($_POST['numTraversee'])) {
-        $numTraversee = $_POST['numTraversee']; ?>
-        <?= $numTraversee ?>
-
-    <?php
+        if (!isLoggedOn()) {
+            header("Location: ./?action=connexion");
+        }
+        // code ci-dessous
+        echo $_POST['numTraversee'];
     } else {
         header("Location: ./?action=destination");
     }
