@@ -12,10 +12,15 @@ function login($mail, $mdp)
     $util = getUtilisateurByMail($mail);
     $mdpBD = $util["MdpUtilisateur"];
     $user = $util["NomUtilisateur"];
+    $adresse = $util["AdresseUtilisateur"];
+    $cpUtilisateur = $util["CpUtilisateur"];
+
     if (($mdpBD) == hash('sha256', $mdp)) {
         $_SESSION["AdresseMailUtilisateur"] = $mail;
         $_SESSION["MdpUtilisateur"] = $mdpBD;
         $_SESSION["NomUtilisateur"] = $user;
+        $_SESSION["AdresseUtilisateur"] = $adresse;
+        $_SESSION["CpUtilisateur"] = $cpUtilisateur;
     }
 }
 

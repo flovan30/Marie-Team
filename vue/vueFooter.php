@@ -1,16 +1,18 @@
 </div>
-<div class="fondFooter">
+<div class="Footer">
     <div class="infoMarie">
         <p>
-        Marie-Team
-        <br>
-        36110 Indre 
-        <br>
-        06 00 00 00 00
+            <span>Marie-Team</span>
+            <br>
+            <span>36110 Indre</span>
+            <br>
+            <span><a href="tel:+33 06 00 00 00 00">06 00 00 00 00</a></span>
         </p>
     </div>
-    <div  class="mailMarie">
-        <p>contact@marieteam.com</p>
+    <div class="mailMarie">
+        <a href="mailto:contact@marieteam.com">contact@marieteam.com</a>
     </div>
-    <img src="images/LogoMarie-Team.png" class="logoFooter" alt="logoFooter">
+    <div class="logoMarieTeam">
+        <img src="images/LogoMarie-Team.png" class="logoFooter" alt="logoFooter">
+    </div>
 </div>
