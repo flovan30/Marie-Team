@@ -1,24 +1,54 @@
-.fondFooter {
+.Footer {
+    height: 100px;
     background-color: #484349;
     display: flex;
+    flex-direction: row;
+    justify-content: space-between;
     color: white;
     text-align: center;
-    font-size: 18px;
+    font-size: 15px;
     align-items: center;
 }
 
 .infoMarie {
-    width: 33.3%;
+    font-size: 20px;
+    flex-basis: 33.33%;
+    display: flex;
+    flex-direction: row;
+    padding-left: 40px;
 }
 
 .mailMarie {
-    width: 33.3%;
+    color: #F5F5F5;
+    flex-basis: 33.33%;
+}
+
+.mailMarie a {
+    font-size: 25px;
+    color: #F5F5F5;
+    text-decoration: none;
+}
+
+.mailMarie,
+a:hover {
+    text-decoration: underline;
+    color: #4b75e8;
+}
+
+.logoMarieTeam {
+    flex-basis: 33.33%;
 }
 
 .logoFooter {
-    width: 12%;
-    height: 70%;
-    padding: 13px;
+    transition: 0.5s;
+    max-width: 80px;
+    max-height: 80px;
     margin-left: auto;
     margin-right: auto;
+}
+
+.logoFooter:hover {
+    transition: 0.5s;
+    transform: scale(1.2);
+    transition: 0.5s;
 }

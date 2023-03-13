@@ -26,3 +26,5 @@ if (isLoggedOn()) {
 } else {
     $util = 'test';
 }
+
+?>

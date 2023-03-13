@@ -10,8 +10,15 @@
         if (!isLoggedOn()) {
             header("Location: ./?action=connexion");
         }
-        // code ci-dessous
-        echo $_POST['numTraversee'];
+        $numTraversee = $_POST['numTraversee'];
+        // code ci-dessous pour afficher les informations de la reservation 
+        $infoTraversee = getInfoTraverseeByNumTraversee($numTraversee);
+        gettype($infoTraversee);
+    ?>
+        <h2>Fiche de reservation</h2>
+        <h3>Liaison : <?= getNomPortDepartByNumTraversee($numTraversee) ?> - <?= getNomPortArriveByNumTraversee($numTraversee) ?></h3>
+        <h4>Traversee N° <?= $infoTraversee["numTraversee"] ?> Le <?php  ?> </h4>
+    <?php
     } else {
         header("Location: ./?action=destination");
     }
