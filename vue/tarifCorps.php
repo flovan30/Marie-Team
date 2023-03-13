@@ -43,17 +43,9 @@
                   ?>
                </select>
 
-<<<<<<< HEAD
-         </div>
-   </div><br><br>  
-         
-         <div class="inputContainer">
-            <input class="threeForm" type="submit"></input>
-         </div>   
-=======
+
             </div>
       </div><br><br>
->>>>>>> 38acbc49ac51fa4fc7de991cade34cbe648fe3cc
 
       <div class="inputContainer">
          <input class="threeForm" type="submit"></input>
@@ -70,27 +62,6 @@
    ?>
       <hr><br><br>
    <?php
-
-      $periode = $_POST["periods"];
-      $liaison = $_POST["liaisons"];
-      $tarif = getTarifByIds($periode, $liaison);
-
-      echo "Passager :<br>";
-      echo "Adulte : " . $tarif[0]["prix"] . "€ <br>";
-      echo "Junior (8 à 18 ans) : " . $tarif[1]["prix"] . "€ <br>";
-      echo "Enfant (0 à 7 ans) : " . $tarif[2]["prix"] . "€ <br>";
-      echo "Véhicule <2m <br>";
-      echo "Voiture inf. 4m : " . $tarif[3]["prix"] . "€ <br>";
-      echo "Voiture inf. 5m : " . $tarif[4]["prix"] . "€ <br>";
-      echo "Véhicule >2m :<br>";
-      echo "Fourgon : " . $tarif[5]["prix"] . "€ <br>";
-      echo "Campign Car : " . $tarif[6]["prix"] . "€ <br>";
-      echo "Camion : " . $tarif[7]["prix"] . "€ <br>";
-   } else {
-   }
-   ?>
-
-<<<<<<< HEAD
                $periode = $_POST["periods"];
                $liaison = $_POST["liaisons"];
                $tarif= getTarifByIds($periode, $liaison);
@@ -110,14 +81,9 @@
                echo "<div class='columnPass bigVerticalBar'>Fourgon : <br>".$tarif[5]["prix"]."€ </div><br>";
                echo "<div class='columnPass verticalBar'>Campign Car : <br>".$tarif[6]["prix"]."€ </div><br>";
                echo "<div class='columnPass verticalBar'>Camion : <br>".$tarif[7]["prix"]."€ </div><br></div>";  
-               exit(); 
             } else {
                
          }
       ?>
-      
-   
-=======
->>>>>>> 38acbc49ac51fa4fc7de991cade34cbe648fe3cc
 
 </main>
