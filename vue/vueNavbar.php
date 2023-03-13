@@ -43,7 +43,7 @@ include_once "$racine/modele/bd.utilisateur.inc.php";
                     <nav>
                     <ul class="menu-links">
                         <li><a href="./?action=connexion">Profil</a></li>
-                        <li><a href="#">Panel</a></li>
+                        <li><a href="./?action=panel">Panel</a></li>
                     </ul>
                     </nav>
                     </div>';
