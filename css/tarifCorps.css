@@ -1,23 +1,66 @@
-div {
-    display: grid;
+.selectForm {
+    width: 80%;
+    margin: 0 10%;
+    border-radius: 10px;
 }
 
-.parentGrill {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-areas: 
-    'one three'
-    'two three';
-  }
+
+.selectForm select {
+    background-color: #232a76;
+    color: #fff;
+    font-size: inherit;
+    padding: .5em;
+    padding-right: 2.5em; 
+    border: 0;  
+    margin: 0;
+    border-radius: 3px;
+    text-indent: 0.01px;
+    text-overflow: '';
+}
 
 .oneForm {
-    grid-area: one;
+    float: left;
+    width: 30%;
+    text-align: center;
+    background-color: #d2d2d2;
+    padding: 30px 0 30px 0;
 }
 
+
 .twoForm {
-    grid-area: two;
+    text-align: center;
+    background-color: #d2d2d2;
+    padding: 30px 0 30px 0;
 }
 
 .threeForm {
-    grid-area: three;
+    display: inline-block;
+    outline: none;
+    cursor: pointer;
+    font-size: 11px;
+    line-height: 1;
+    border-radius: 325px;
+    transition-duration: .3s;
+    border: 1px solid transparent;
+    letter-spacing: 2px;
+    min-width: 120px;
+    text-transform: uppercase;
+    white-space: normal;
+    font-weight: 425;
+    text-align: center;
+    padding: 12px 32px;
+    height: 32px;
+    color: #FFF;
+    background-color: #232a76;
+}
+.inputContainer {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+hr {
+    border: 0;
+    height: 2px;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
 }

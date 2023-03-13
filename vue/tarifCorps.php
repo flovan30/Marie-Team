@@ -6,12 +6,18 @@
       $periodes= getPeriode();
    ?>
    <br><br>
+
    <div class="parentGrill">
+
+      <div class="formLists">
+
       <form  action = "<?php $_PHP_SELF ?>" method = "POST">
-      <div class="oneForm">
-         <label for="liaisons-select">Pour quelle liaison souhaitez vous voyager ?</label><br>
+
+         <div class="selectForm oneForm">
+
+            <label for="liaisons-select">Pour quelle liaison souhaitez vous voyager ?</label><br><br>
             <select name="liaisons" id="liaisons-select">
-               <option value="">--Choisissez une option--</option>
+               <option value="">-- Choisissez une option --</option>
                <?php
                   for ($i = 0; $i < count($liaisons); $i++) {
                      $port1 = getPortById($liaisons[$i]["idPort"]);
@@ -20,35 +26,39 @@
                   }  
                ?>
             </select> 
-         </div> 
-            <br><br><br>
 
-         <div class="twoForm">
-            <label for="period-select">Pour quelle période souhaitez vous voyager ?</label><br>
+         </div>
+
+         <div class="selectForm twoForm">
+
+            <label for="period-select">Pour quelle période souhaitez vous voyager ?</label><br><br>
             <select name="periods" id="period-select">
-               <option value="">--Choisissez une option--</option>
+               <option value="">-- Choisissez une option --</option>
                <?php
                   for ($i = 0; $i < count($periodes); $i++) {
                      echo '<option value="'.$periodes[$i]["idPeriode"].'">'.$periodes[$i]["dateDebutPeriode"].' - '.$periodes[$i]["dateFinPeriode"].'</option>';
                   }  
                ?>
             </select>
-         </div>
 
-         <br><br>  
-         
-         <div class="threeForm">
-            <input type="submit"></input>
          </div>
-      </form>
-      <br>
+      </div><br><br>  
+         
+         <div class="inputContainer">
+            <input class="threeForm" type="submit"></input>
+         </div>   
+
       </div>
 
-      
+      </form><br><br><br>
 
       <?php
       
          if(isset($_POST["periods"]) && isset($_POST["liaisons"])) {
+      
+      ?>
+      <hr><br><br>
+      <?php
 
                $periode = $_POST["periods"];
                $liaison = $_POST["liaisons"];
