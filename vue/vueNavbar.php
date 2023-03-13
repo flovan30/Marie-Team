@@ -42,8 +42,13 @@ include_once "$racine/modele/bd.utilisateur.inc.php";
                 echo "<div class='pdpnavbar'><a href='#' class='menu-button'>" . $first_letter . '</a>
                     <nav>
                     <ul class="menu-links">
-                        <li><a href="./?action=connexion">Profil</a></li>
-                        <li><a href="./?action=panel">Panel</a></li>
+                        <li><a href="./?action=connexion">Profil</a></li>';
+                    if ($util['RoleUtilisateur']==1 || $util['RoleUtilisateur']==2){
+                       echo '<li><a href="./?action=panel">Panel</a></li>';
+                    }
+
+                    echo'
+                    <li><a href="./?action=deconnexion">Se déconnecter</a></li>
                     </ul>
                     </nav>
                     </div>';

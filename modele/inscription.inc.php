@@ -29,13 +29,11 @@ if ( isset($_POST['nomInscription'])==1 && isset($_POST['mailInscription'])==1 &
     
     
         if ($base){ 
-            $requete = 'INSERT INTO utilisateur (NomUtilisateur,AdresseMailUtilisateur,MdpUtilisateur,AdresseUtilisateur,CpUtilisateur) VALUES ("'. $nomvalide . '","' . $mailvalide . '","' . hash('sha256',$mdpvalide)  . '","' . $adressevalide . '",' . $cpvalide .  ')';
-            mysqli_query($base, $requete);
-            
-
+                $requete = 'INSERT INTO utilisateur (NomUtilisateur,AdresseMailUtilisateur,MdpUtilisateur,AdresseUtilisateur,CpUtilisateur, RoleUtilisateur) VALUES ("'. $nomvalide . '","' . $mailvalide . '","' . hash('sha256',$mdpvalide)  . '","' . $adressevalide . '",' . $cpvalide .  ', 0 )';
+                mysqli_query($base, $requete);
+                print_r($requete);
             echo "<script type='text/javascript'>
             alert('Votre compte a été bien registré')</script>";
-
         }
         else { 
             echo "<script type='text/javascript'>

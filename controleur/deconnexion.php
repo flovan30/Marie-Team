@@ -9,7 +9,9 @@ include "$racine/modele/connexion.inc.php";
 
 logout();
 
-                
+
+header('Refresh:0 ; url=index.php');
+
 
 // appel du script de vue qui permet de gerer l'affichage des donnees
 $titre = "authentification";
