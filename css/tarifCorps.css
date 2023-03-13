@@ -64,3 +64,54 @@ hr {
     height: 2px;
     background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
 }
+
+
+.tarifLists {
+    display: flex;
+    width: 80%;
+    margin: 0 10%;
+    border-radius: 10px;
+    margin-bottom: 2%;
+}
+
+.oneTarif {
+    display: flex;
+    text-align: center;
+    background-color: #d2d2d2;
+    padding: 20px 0 20px 0;
+}
+
+
+.twoTarif {
+    text-align: center;
+    background-color: #d2d2d2;
+    padding: 20px 0 20px 0;
+}
+
+.threeTarif {
+    text-align: center;
+    background-color: #d2d2d2;
+    padding: 20px 0 20px 0;
+}
+  
+.columnPass {
+    width: 20%;
+    flex: 1;
+    height: 60px;
+    margin: auto auto;
+    padding-top: 8px;
+}
+
+.verticalBar {
+    border-left: 2px solid #232a76;
+    height: 50px;
+}
+
+.bigVerticalBar {
+    border-left: 4px solid #232a76;
+    height: 50px;
+}
+
+.textLign {
+    font-size: 20px;
+}

@@ -42,7 +42,7 @@
             </select>
 
          </div>
-      </div><br><br>  
+   </div><br><br>  
          
          <div class="inputContainer">
             <input class="threeForm" type="submit"></input>
@@ -63,23 +63,28 @@
                $periode = $_POST["periods"];
                $liaison = $_POST["liaisons"];
                $tarif= getTarifByIds($periode, $liaison);
-               
-               echo "Passager :<br>";
-               echo "Adulte : ".$tarif[0]["prix"]."€ <br>";
-               echo "Junior (8 à 18 ans) : ".$tarif[1]["prix"]."€ <br>";
-               echo "Enfant (0 à 7 ans) : ".$tarif[2]["prix"]."€ <br>";
-               echo "Véhicule <2m <br>";
-               echo "Voiture inf. 4m : ".$tarif[3]["prix"]."€ <br>";
-               echo "Voiture inf. 5m : ".$tarif[4]["prix"]."€ <br>";
-               echo "Véhicule >2m :<br>";
-               echo "Fourgon : ".$tarif[5]["prix"]."€ <br>";
-               echo "Campign Car : ".$tarif[6]["prix"]."€ <br>";
-               echo "Camion : ".$tarif[7]["prix"]."€ <br>";  
-               exit();
+
+      ?> 
+            
+         
+      <?php  
+               echo "<div class='tarifLists oneTarif'><div class='columnPass textLign'>Passager :</div><br>";
+               echo "<div class='columnPass bigVerticalBar'>Adulte : <br>".$tarif[0]["prix"]."€ </div><br>";
+               echo "<div class='columnPass verticalBar'>Junior (8 à 18 ans) : <br>".$tarif[1]["prix"]."€ </div><br>";
+               echo "<div class='columnPass verticalBar'> Enfant (0 à 7 ans) : <br>".$tarif[2]["prix"]."€ </div><br>";
+               echo "</div><div class='tarifLists twoTarif'><div class='columnPass textLign'>Véhicule <2m :</div><br>";
+               echo "<div class='columnPass bigVerticalBar'>Voiture inf. 4m : <br>".$tarif[3]["prix"]."€ </div><br>";
+               echo "<div class='columnPass verticalBar'>Voiture inf. 5m : <br>".$tarif[4]["prix"]."€ </div><br>";
+               echo "</div><div class='tarifLists threeTarif'><div class='columnPass textLign'>Véhicule >2m :</div><br>";
+               echo "<div class='columnPass bigVerticalBar'>Fourgon : <br>".$tarif[5]["prix"]."€ </div><br>";
+               echo "<div class='columnPass verticalBar'>Campign Car : <br>".$tarif[6]["prix"]."€ </div><br>";
+               echo "<div class='columnPass verticalBar'>Camion : <br>".$tarif[7]["prix"]."€ </div><br></div>";  
+               exit(); 
             } else {
                
          }
       ?>
+      
    
 
 </main>
