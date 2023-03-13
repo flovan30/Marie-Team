@@ -21,7 +21,7 @@
     transform: scale(1.2);
 }
 
-.avatar {
+.menu-button {
     width: 70px;
     height: 70px;
     border-radius: 50%;
@@ -35,6 +35,25 @@
     line-height: 50px;
     text-decoration: none;
     color: black;
+}
+
+
+.menu-links {
+    display: none;
+}
+
+.menu-links.show-menu {
+    display: block;
+    font-size: 20px;
+    background-color: white;
+    list-style: none;
+    position: absolute;
+    z-index: 3;
+}
+
+.menu-links.show-menu a {
+    color: black;
+    border: solid 2px black;
 }
 
 

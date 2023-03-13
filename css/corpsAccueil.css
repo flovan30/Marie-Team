@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
+
 body {
     min-height: 100vh;
     background-color: #f1f1f1;
@@ -6,10 +7,9 @@ body {
     width: 100%;
 }
 
-.main_top{
-    position: relative;
+.main_top {
     width: 100%;
-    height: calc( 100vh - 104px );
+    height: calc(100vh - 104px);
     background-position: center;
     background-size: cover;
     background-image: url('../images/background-sea.png');
@@ -20,39 +20,40 @@ body {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%, -50%);
     width: 600px;
     height: 250px;
     font-size: 21px;
     display: flex;
-    text-align: center; 
+    text-align: center;
     justify-content: center;
     align-items: center;
     background-color: rgba(255, 244, 232, 0.75);
 }
 
-.title_bottom{
+.title_bottom {
     margin: 40px;
     text-align: center;
     font-size: 33px;
 
 }
-.cards{
+
+.cards {
     align-items: center;
     justify-content: center;
     display: flex;
     padding: 0 5% 60px 5%;
 }
 
-.card{
+.card {
     background-color: rgb(255, 244, 232);
     text-align: center;
     width: 50%;
-    border: 2px solid black ;
+    border: 2px solid black;
     border-radius: 20px;
 }
 
-.cardLeft{
+.cardLeft {
     margin-right: 10%;
 }
 
@@ -60,16 +61,18 @@ body {
     margin-left: 10%;
 }
 
-.card_title{
+.card_title {
     font-size: 25px;
     font-weight: bold;
     padding: 10px 80px;
 }
-.card_paragraph{
+
+.card_paragraph {
     padding: 10px 0px;
     font-size: 24px;
 }
-.card_button{
+
+.card_button {
     border: none;
     margin: 30px;
     padding: 5px 40px;
@@ -79,10 +82,11 @@ body {
     color: white;
     border-radius: 10px;
 }
-.card_button:hover{
+
+.card_button:hover {
     text-decoration: underline;
     transition: 0.7s;
     transform: scale(1.3);
-   
+
     border-radius: 50px;
 }
