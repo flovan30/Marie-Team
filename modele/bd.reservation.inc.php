@@ -38,7 +38,7 @@ function getNomPortDepartByNumTraversee($numTraversee)
     }
     return 0;
 }
-function getInfoTraverseeByNumTraversee($numTraversee)
+function getInfosTraverseeByNumTraversee($numTraversee)
 {
     $resultat = array();
     try {
@@ -50,6 +50,112 @@ function getInfoTraverseeByNumTraversee($numTraversee)
         $resultat = $req->fetch(PDO::FETCH_ASSOC);
         if ($resultat) {
             return $resultat;
+        }
+    } catch (PDOException $e) {
+        print "Erreur !: " . $e->getMessage();
+        die();
+    }
+    return 0;
+}
+
+function getDateTraverseeByNumTraversee($numTraversee)
+{
+    $resultat = array();
+    try {
+        $cnx = connexionPDO();
+        $req = $cnx->prepare("SELECT CONCAT(DATE_FORMAT(dateTraversee, '%d '), MONTHNAME(dateTraversee), DATE_FORMAT(dateTraversee, ' %Y')) AS 'dateTraversee' FROM traversee WHERE traversee.numTraversee like :numTraversee;");
+        $req->bindValue(':numTraversee', $numTraversee, PDO::PARAM_INT);
+        $req->execute();
+
+        $resultat = $req->fetch(PDO::FETCH_ASSOC);
+        if ($resultat) {
+            return $resultat;
+        }
+    } catch (PDOException $e) {
+        print "Erreur !: " . $e->getMessage();
+        die();
+    }
+    return 0;
+}
+
+// les fonction ci-dessous servent a trouver le prix de chaque type 
+function getAllType()
+{
+    $resultat = array();
+
+    try {
+        $cnx = connexionPDO();
+        $req = $cnx->prepare("SELECT * FROM type");
+        $req->execute();
+
+        $resultat = $req->fetchAll(PDO::FETCH_ASSOC);
+        if ($resultat) {
+            return $resultat;
+        }
+    } catch (PDOException $e) {
+        print "Erreur !: " . $e->getMessage();
+        die();
+    }
+    return 0;
+}
+
+function getInfoTypeByLibelleType($libelleType)
+{
+    $resultat = array();
+
+    try {
+        $cnx = connexionPDO();
+        $req = $cnx->prepare("SELECT * FROM type WHERE libelleType like :libelleType");
+        $req->bindValue(':libelleType', $libelleType, PDO::PARAM_STR);
+        $req->execute();
+
+        $resultat = $req->fetch(PDO::FETCH_ASSOC);
+        if ($resultat) {
+            return $resultat['codeCategorie'];
+        }
+    } catch (PDOException $e) {
+        print "Erreur !: " . $e->getMessage();
+        die();
+    }
+    return 0;
+}
+
+function getIdPeriodeWithDateActuelle()
+{
+    $resutat = array();
+
+    try {
+        $cnx = connexionPDO();
+        $req = $cnx->prepare("SELECT idPeriode FROM periode WHERE NOW() BETWEEN periode.dateDebutPeriode AND periode.dateFinPeriode");
+        $req->execute();
+
+        $resultat = $req->fetch(PDO::FETCH_ASSOC);
+        if ($resultat) {
+            return $resultat['idPeriode'];
+        }
+    } catch (PDOException $e) {
+        print "Erreur !: " . $e->getMessage();
+        die();
+    }
+    return 0;
+}
+
+function getPrixByCodeCategorieAndNumTypeAndIdPeriode($codeCategorie, $numType, $idPeriode, $codeLiaison)
+{
+    $resultat = array();
+
+    try {
+        $cnx = connexionPDO();
+        $req = $cnx->prepare("SELECT prix FROM tarifer WHERE codeCategorie LIKE ':codeCategorie' AND numType LIKE :numType AND idPeriode LIKE :idPeriode AND codeLiaison = :codeLiaison");
+        $req->bindValue(':codeCategorie', $codeCategorie, PDO::PARAM_STR);
+        $req->bindValue(':numType', $numType, PDO::PARAM_INT);
+        $req->bindValue(':idPeriode', $idPeriode, PDO::PARAM_INT);
+        $req->bindValue(':codeLiaison', $codeLiaison, PDO::PARAM_STR);
+        $req->execute();
+
+        $resultat = $req->fetch(PDO::FETCH_ASSOC);
+        if ($resultat) {
+            return $resultat['prix'];
         }
     } catch (PDOException $e) {
         print "Erreur !: " . $e->getMessage();

@@ -8,7 +8,8 @@
                 <?php
                 for ($i = 0; $i < count($listeSecteur); $i++) {
                 ?>
-                <?php echo "<option value='" . $listeSecteur[$i]["idSecteur"] . "'>" . $listeSecteur[$i]["nomSecteur"] . "</option>";
+                    <option value="<?= $listeSecteur[$i]['idSecteur'] ?>"><?= $listeSecteur[$i]['nomSecteur'] ?></option>
+                <?php
                 }
                 ?>
             </select>
@@ -39,15 +40,17 @@
                 $dateJP1 = date("Y-m-d", strtotime($today . ' +1 day'));
                 ?>
                 <input type="date" name="dateDestination" id="dateDestination" <?php echo "min='$dateJP1'"; ?>>
+                <input hidden type="number" name="idSecteur" id="idSecteur" value="<?= $secteur ?>">
                 <input type="submit" value="Afficher">
             </form>
 
             <?php
         }
         // pour trouver ça il faut une requete qui recupère le nom a partir du son ID 
-        if (isset($_POST['liaison']) && isset($_POST['dateDestination'])) {
+        if (isset($_POST['liaison']) && isset($_POST['dateDestination']) && isset($_POST['idSecteur'])) {
             $liaison = $_POST['liaison'];
             $date = $_POST['dateDestination'];
+            $idSecteur = $_POST['idSecteur'];
             $traversee = getTraverseeByCodeLiaisonAndDate($liaison, $date);
 
 
@@ -65,6 +68,7 @@
                 <h3>Num : <?= $traversee[$i]['numTraversee'] ?> | date : <?= $traversee[$i]['dateTraversee'] ?> à <?= $traversee[$i]['heureDepartTraversee'] ?> | Passager : <?= $nbPlacePassageeRestante ?> | Véh.inf.2m : <?= $nbPlaceVehiculeInf2mRestante ?> | Véh.sup.2m : <?= $nbPlaceVehiculeSup2mRestante ?>
                     <form action="./?action=reservation" method="POST">
                         <input hidden type="number" name="numTraversee" value="<?= $traversee[$i]['numTraversee'] ?>">
+                        <input hidden type="number" name="idLiaison" value="<?= $liaison ?>">
                         <input type="submit" <?= $button ?>>
                     </form>
                 </h3>
