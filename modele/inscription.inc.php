@@ -1,5 +1,5 @@
 <?php 
-
+function inscription {
 if ( isset($_POST['nomInscription'])==1 && isset($_POST['mailInscription'])==1 && isset($_POST['mdpInscription'])==1 && isset($_POST['mdpVerifInscription'])==1 && isset($_POST['adresseInscription'])==1 && isset($_POST['cpInscription'])){ 
     
     $nomvalide = $_POST['nomInscription'];
@@ -50,3 +50,5 @@ if ( isset($_POST['nomInscription'])==1 && isset($_POST['mailInscription'])==1 &
 else {
     echo "error formulaire";
 }
+}
+?>
