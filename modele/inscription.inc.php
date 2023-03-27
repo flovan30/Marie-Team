@@ -1,14 +1,8 @@
-<<<<<<< HEAD
-<?php 
-function inscription {
-if ( isset($_POST['nomInscription'])==1 && isset($_POST['mailInscription'])==1 && isset($_POST['mdpInscription'])==1 && isset($_POST['mdpVerifInscription'])==1 && isset($_POST['adresseInscription'])==1 && isset($_POST['cpInscription'])){ 
-    
-=======
+
 <?php
 
 if (isset($_POST['nomInscription']) == 1 && isset($_POST['mailInscription']) == 1 && isset($_POST['mdpInscription']) == 1 && isset($_POST['mdpVerifInscription']) == 1 && isset($_POST['adresseInscription']) == 1 && isset($_POST['cpInscription'])) {
 
->>>>>>> 4ffc8d2818b22adaeca9d0ef8fa64685ac4cb4ec
     $nomvalide = $_POST['nomInscription'];
     $mailvalide = $_POST['mailInscription'];
     $mdpvalide = $_POST['mdpInscription'];
