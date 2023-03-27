@@ -16,7 +16,7 @@
             echo "Admin";
         }
         else {
-            echo "Qu'est tu fou ici";
+            echo "Qu'est-ce que tu fous ici";
         }
         
         ?></p>
@@ -24,11 +24,10 @@
     </div>
     
 	<ul>
-		<li><a href="#">Liaison</a></li>
-        <li><a href="#">Nombre de reservation en moyenne</a></li> 
-		<li><a href="#">Chiffre d'affaire</a></li>
-		<li><a href="#">Le nb de personne transporté</a></li>
-        <li><a href="#">nb de personne par catégorie</a></li>
+		<li><a href="#Privileges">Table des privilèges</a></li>
+        <li><a href="#nbReservationMoy">Réservations moyennes</a></li> 
+		<li><a href="#chiffreAffaire">Chiffre d'affaire</a></li>
+		<li><a href="#nbPersonneTransp">Nombre de passagers</a></li>
 
 	</ul>
 </div>

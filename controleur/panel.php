@@ -13,6 +13,7 @@ if ($util["RoleUtilisateur"]==1 || $util["RoleUtilisateur"]==2) {
 
     print_r($util["RoleUtilisateur"]);
 include "$racine/vue/vueNavbarPanel.php";
+include "$racine/vue/vuePanel.php";
 
 }
 else {

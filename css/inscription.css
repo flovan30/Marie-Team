@@ -122,24 +122,3 @@ div {
     border-color: #8d8d8d;
     box-shadow: 0 2px 5px 0 rgb(213 217 217 / 50%);
 }
-
-.inscriptionReussie {
-
-    display: inline-block;
-    outline: none;
-    cursor: pointer;
-    font-size: 11px;
-    line-height: 1;
-    border-radius: 325px;
-    transition-duration: .3s;
-    border: 1px solid transparent;
-    letter-spacing: 2px;
-    min-width: 200px;
-    text-transform: uppercase;
-    white-space: normal;
-    font-weight: 425;
-    text-align: center;
-    padding: 12px 62px;
-    height: 32px;
-    color: #FFF;
-}
