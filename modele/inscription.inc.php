@@ -1,7 +1,14 @@
+<<<<<<< HEAD
 <?php 
 function inscription {
 if ( isset($_POST['nomInscription'])==1 && isset($_POST['mailInscription'])==1 && isset($_POST['mdpInscription'])==1 && isset($_POST['mdpVerifInscription'])==1 && isset($_POST['adresseInscription'])==1 && isset($_POST['cpInscription'])){ 
     
+=======
+<?php
+
+if (isset($_POST['nomInscription']) == 1 && isset($_POST['mailInscription']) == 1 && isset($_POST['mdpInscription']) == 1 && isset($_POST['mdpVerifInscription']) == 1 && isset($_POST['adresseInscription']) == 1 && isset($_POST['cpInscription'])) {
+
+>>>>>>> 4ffc8d2818b22adaeca9d0ef8fa64685ac4cb4ec
     $nomvalide = $_POST['nomInscription'];
     $mailvalide = $_POST['mailInscription'];
     $mdpvalide = $_POST['mdpInscription'];
@@ -9,45 +16,41 @@ if ( isset($_POST['nomInscription'])==1 && isset($_POST['mailInscription'])==1 &
     $cpvalide = $_POST['cpInscription'];
     $mdpVerifvalide = $_POST['mdpVerifInscription'];
     $connexion = 0;
-    if ($mdpvalide == $mdpVerifvalide) { 
-    $server="localhost";
-    $name="root";   
-    $mdp="";
-    $base=mysqli_connect($server,$name,$mdp,"marieteam");
+    if ($mdpvalide == $mdpVerifvalide) {
+        $server = "localhost";
+        $name = "root";
+        $mdp = "";
+        $base = mysqli_connect($server, $name, $mdp, "marieteam");
 
-    /* Verification mail */
+        /* Verification mail */
 
 
-    $resultat = mysqli_query($base, "SELECT AdresseMailUtilisateur FROM utilisateur");
+        $resultat = mysqli_query($base, "SELECT AdresseMailUtilisateur FROM utilisateur");
 
-    while ($verifiMail = mysqli_fetch_row($resultat)) { 
-        if ($verifiMail==$adressevalide){
-                    $connexion = 1; 
-                }  
-        }  
-        
-    
-    
-        if ($base){ 
-                $requete = 'INSERT INTO utilisateur (NomUtilisateur,AdresseMailUtilisateur,MdpUtilisateur,AdresseUtilisateur,CpUtilisateur, RoleUtilisateur) VALUES ("'. $nomvalide . '","' . $mailvalide . '","' . hash('sha256',$mdpvalide)  . '","' . $adressevalide . '",' . $cpvalide .  ', 0 )';
-                mysqli_query($base, $requete);
-                print_r($requete);
+        while ($verifiMail = mysqli_fetch_row($resultat)) {
+            if ($verifiMail == $adressevalide) {
+                $connexion = 1;
+            }
+        }
+
+
+
+        if ($base) {
+            $requete = 'INSERT INTO utilisateur (NomUtilisateur,AdresseMailUtilisateur,MdpUtilisateur,AdresseUtilisateur,CpUtilisateur, RoleUtilisateur) VALUES ("' . $nomvalide . '","' . $mailvalide . '","' . hash('sha256', $mdpvalide)  . '","' . $adressevalide . '",' . $cpvalide .  ', 0 )';
+            mysqli_query($base, $requete);
+            print_r($requete);
             echo "<script type='text/javascript'>
             alert('Votre compte a été bien registré')</script>";
-        }
-        else { 
+        } else {
             echo "<script type='text/javascript'>
             alert('test loupé   ')</script> ";
         }
-    }
-    else {
+    } else {
         echo "<script type='text/javascript'>
         alert('Mot de passe différents')
         document.location.href = '../?action=inscription';</script>";
     }
-    
-}
-else {
+} else {
     echo "error formulaire";
 }
 }
