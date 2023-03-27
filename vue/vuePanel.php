@@ -54,38 +54,75 @@
     <section id=nbPersonneTransp>
         <?php
 
-        $lastWeekPassager = nbPassagersForLastWeek();
-        echo '<div>Nombre de passagers ayant reservé et ayant voyagé cette dernière semaine :<div>';
-        if ($lastWeekPassager[0]['totalPassagers'] == 0) {
+
+        $lastWeek = nbPassagersForLastWeek();
+        if ($lastWeek[0]['totalPassagers'] == 0) {
             echo '0';
         } else {
             echo $lastWeekPassager[0]['totalPassagers'];
         }
         
+        $lastMonth = nbPassagersForLastMonth();
+        $lastYear = nbPassagersForLastYear();
+        $everytime = nbPassagersForEverytime();
+        $evertimeByCategorie = nbPassagersForEverytimeByCodeCategorie();
+        echo '<div>Nombre de passagers ayant reservé et ayant voyagé selon la catégorie :<div>';
+        echo '
+        <table>
+            <tr>
+                <td></td>
+                <td>Par semaine</td>
+                <td>Par mois</td>
+                <td>Par an</td>
+                <td>Depuis le début</td>
+            </tr>
+            <tr>
+                <td>Catégorie "Passager"</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Catégorie "Véhicule < 2m"</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>  
+            </tr>
+            <tr>
+                <td>Catégorie "Véhicule > 2m"</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Total';
+                echo '</td><td>';
 
-        $lastMonthPassager = nbPassagersForLastMonth();
-        echo '<div>Nombre de passagers ayant reservé et ayant voyagé ce dernier mois :<div>';
-        if ($lastMonthPassager[0]['totalPassagers'] == 0) {
-            echo '0';   
-        } else {
-            echo $lastMonthPassager[0]['totalPassagers'];
-        }
-
-        $lastYearPassager = nbPassagersForLastYear();
-        echo '<div>Nombre de passagers ayant reservé et ayant voyagé cette dernière année :<div>';
-        if ($lastYearPassager[0]['totalPassagers'] == 0) {
-            echo '0';   
-        } else {
-            echo $lastYearPassager[0]['totalPassagers'];
-        }
-
-        $everytimePassager = nbPassagersForEverytime();
-        echo '<div>Nombre de passagers ayant reservé et ayant voyagé depuis le début de Marie Team :<div>';
-        if ($everytimePassager[0]['totalPassagers'] == 0) {
-            echo '0';   
-        } else {
-            echo $everytimePassager[0]['totalPassagers'];
-        }
+                echo '</td><td>';
+                    if ($lastMonth[0]['totalPassagers'] == 0) {
+                        echo '0';   
+                    } else {
+                        echo $lastMonth[0]['totalPassagers'];
+                    }
+                echo '</td><td>';
+                    if($lastYear[0]['totalPassagers'] == 0) {
+                        echo '0';   
+                    } else {
+                        echo $lastYear[0]['totalPassagers'];
+                    }
+                echo '</td><td>';
+                    if ($everytime[0]['totalPassagers'] == 0) {
+                        echo '0';   
+                    } else {
+                        echo $everytime[0]['totalPassagers'];
+                    }
+                echo '</td>  
+            </tr>
+      </table>
+      ';
 
         ?>
     </section>

@@ -18,6 +18,7 @@
         $infosTraversee = getInfosTraverseeByNumTraversee($numTraversee);
         $dateTraversee = getDateTraverseeByNumTraversee($numTraversee);
         $types = getAllType();
+        $periodeActuelle = intval(getIdPeriodeWithDateActuelle());
 
     ?>
         <h2>Fiche de reservation</h2>
@@ -40,6 +41,12 @@
                             <tr>
                                 <td>
                                     <?= $type['libelleType'] ?>
+                                </td>
+                                <td>
+                                    <?php
+                                    $infosType = getInfoTypeByLibelleType($type['libelleType']);
+                                    print_r(getPrixByCodeCategorieAndNumTypeAndIdPeriode($infosType['codeCategorie'], $infosType['numType'], $periodeActuelle, $codeLiaison));
+                                    ?> €
                                 </td>
                             </tr>
                         <?php } ?>

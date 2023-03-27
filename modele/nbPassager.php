@@ -89,3 +89,26 @@ function nbPassagersForEverytime()
     }
     return $resultat;
 }
+
+function nbPassagersForEverytimeByCodeCategorie()
+{
+     try {
+        $cnx = connexionPDO();
+        $req = $cnx->prepare("select sum(e.quantité) AS totalPassagers, e.codeCategorie
+        FROM enregistrer e, reservation r, traversee t
+        WHERE e.numReservation = r.numReservation AND r.numTraversee = t.numTraversee
+        AND t.dateTraversee BETWEEN DATE_SUB(NOW(), INTERVAL 800 DAY) AND NOW()
+        GROUP BY e.codeCategorie;");
+        $req->execute();
+        
+        $ligne = $req->fetch(PDO::FETCH_ASSOC);
+        while ($ligne) {
+            $resultat[] = $ligne;
+            $ligne = $req->fetch(PDO::FETCH_ASSOC);
+        }
+    } catch (PDOException $e) {
+        print "Erreur !: " . $e->getMessage();
+        die();
+    }
+    return $resultat;
+}

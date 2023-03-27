@@ -111,7 +111,7 @@ function getInfoTypeByLibelleType($libelleType)
 
         $resultat = $req->fetch(PDO::FETCH_ASSOC);
         if ($resultat) {
-            return $resultat['codeCategorie'];
+            return $resultat;
         }
     } catch (PDOException $e) {
         print "Erreur !: " . $e->getMessage();
@@ -143,10 +143,9 @@ function getIdPeriodeWithDateActuelle()
 function getPrixByCodeCategorieAndNumTypeAndIdPeriode($codeCategorie, $numType, $idPeriode, $codeLiaison)
 {
     $resultat = array();
-
     try {
         $cnx = connexionPDO();
-        $req = $cnx->prepare("SELECT prix FROM tarifer WHERE codeCategorie LIKE ':codeCategorie' AND numType LIKE :numType AND idPeriode LIKE :idPeriode AND codeLiaison = :codeLiaison");
+        $req = $cnx->prepare("SELECT prix FROM tarifer WHERE codeCategorie LIKE :codeCategorie AND numType LIKE :numType AND idPeriode LIKE :idPeriode AND codeLiaison = :codeLiaison");
         $req->bindValue(':codeCategorie', $codeCategorie, PDO::PARAM_STR);
         $req->bindValue(':numType', $numType, PDO::PARAM_INT);
         $req->bindValue(':idPeriode', $idPeriode, PDO::PARAM_INT);
