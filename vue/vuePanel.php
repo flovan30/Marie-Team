@@ -1,8 +1,32 @@
 <div style="margin-left: 300px">
     
+
+    <?php 
+        if ($util["RoleUtilisateur"]==2) { 
+    ?>
     <section id=Privileges>
+
+        <h3>Technicien</h3>
+        <?php 
+        $resultats = VerifRoleTechnicien();
+        foreach ($resultats as $resultat) {
+            echo implode(", ", $resultat) . "<br/>";
+        }
+        ?>
+        <h3>Admin</h3>
+
+        <?php
+        $resultats = VerifRoleAdmin();
+        foreach ($resultats as $resultat) {
+            echo implode(", ", $resultat) . "<br/>";
+        }
         
+        ?>
+        <br><br>
     </section>
+    <?php
+        }
+    ?>
     
     <section id=nbReservationMoy>
 
