@@ -5,20 +5,17 @@
     </section>
     
     <section id=nbReservationMoy>
-        z
-        ef
-        rezg
-        rze
-        rze
-        ez
-        gz
-        gzr
-        gzr
-        gezr
-        fhziehfeaifjeaopfkaeofkjze
     </section>
     
     <section id=chiffreAffaire>
+        <p>prix total</p>
+        <?php 
+
+        $prixTotal = TotalchiffreAffaire();
+        echo "<div>Le chiffre d'affaire de ce mois-ci est de : </div>";
+        echo "<div class='TotalPrix'>". $prixTotal ." </div>";
+        
+        ?>
         
     </section>
     

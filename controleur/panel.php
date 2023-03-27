@@ -5,6 +5,7 @@ if ( $_SERVER["SCRIPT_FILENAME"] == __FILE__) {
 }
 include_once "$racine/modele/connexion.inc.php";
 include_once "$racine/modele/bd.utilisateur.inc.php";
+include_once "$racine/modele/chiffreAffaire.php";
 
 $mail = getMailLoggedOn();
 $util = getUtilisateurByMail($mail);
