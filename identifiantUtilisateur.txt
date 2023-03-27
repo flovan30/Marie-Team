@@ -6,3 +6,7 @@ Password1*
 
 technicien@gmail.com
 Password1*	
+
+0 = utilisateur
+1 = technicien
+2 = admin 

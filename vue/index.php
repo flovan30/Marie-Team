@@ -5,8 +5,7 @@
 <main>
     <section class="main_top">
         <div class="overlay">
-            <h1>Bienvenue sur Marie-Team.come+
-                3<br>Leader franÃ§ais du transport maritime</h1>
+            <h1>Bienvenue sur Marie-Team.com<br>Leader franÃ§ais du transport maritime</h1>
         </div>
     </section>
     <section class="main_bottom">

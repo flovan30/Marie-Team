@@ -9,10 +9,10 @@
         <p>Pannel</p>
         <div class="roleNav">
         <p>Votre status : <?php  
-        if ($util["RoleUtilisateur"]=1) {
+        if ($util["RoleUtilisateur"]==1) {
             echo "Technicien";
         }
-        elseif ($util["RoleUtilisateur"]=2) {
+        elseif ($util["RoleUtilisateur"]==2) {
             echo "Admin";
         }
         else {
@@ -24,11 +24,11 @@
     </div>
     
 	<ul>
-		<li><a href="#">Utilisateur</a></li> 
-		<li><a href="#">Bateau</a></li>
-		<li><a href="#">Port</a></li>
-        <li><a href="#">Secteur</a></li>
-        <li><a href="#">Liaison</a></li>
-        <li><a href="#">Logs</a></li>
+		<li><a href="#">Liaison</a></li>
+        <li><a href="#">Nombre de reservation en moyenne</a></li> 
+		<li><a href="#">Chiffre d'affaire</a></li>
+		<li><a href="#">Le nb de personne transporté</a></li>
+        <li><a href="#">nb de personne par catégorie</a></li>
+
 	</ul>
 </div>
