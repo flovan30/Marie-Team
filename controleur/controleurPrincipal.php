@@ -12,6 +12,7 @@ function controleurPrincipal($action)
     $lesActions["profil"] = "profil.php";
     $lesActions["deconnexion"] = "deconnexion.php";
     $lesActions["panel"] = "panel.php";
+    $lesActions["inscriptionreussie"] = "inscriptionReussie.php";
 
 
     if (array_key_exists($action, $lesActions)) {

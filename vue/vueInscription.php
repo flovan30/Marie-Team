@@ -1,13 +1,28 @@
-<h1>Inscription</h1>
+<style>
+        @import url("css/inscription.css");
+</style>
 
-    
-    <form action="modele/inscription.inc.php" method="POST">
-            <input type="text" class="" name="nomInscription" placeholder="nom" required /><br><br>
-            <input type="text" class="" name="mailInscription" placeholder="mail" required /><br><br>
-            <input type="password" class="" name="mdpInscription" placeholder="mdp" required /><br><br>
-            <input type="password" class="" name="mdpVerifInscription" placeholder="Verification mdp" required /><br><br>
-            <input type="text" class="" name="adresseInscription" placeholder="adresse" required  /><br><br>
-            <input type="text" class="box-input" name="cpInscription" placeholder="cp" /><br><br>
-    </select>
-            <input type="submit" value="Confirmer"/>
-            <input type="reset" value="Effacer"/><br><br>
+<div class="boxSignIn">
+
+        <div class="formSignIn">
+                <h1>Inscription</h1><br>
+
+                <form action="modele/inscriptionReussie.php" method="POST">
+                        <input class="textInputSignIn" type="text" class="" name="nomInscription" placeholder="Votre Nom" required /><br><br>
+                        <input class="textInputSignIn" type="text" class="" name="mailInscription" placeholder="Votre Email" required /><br><br>
+                        <input class="textInputSignIn" type="password" class="" name="mdpInscription" placeholder="Mot de passe" required /><br><br>
+                        <input class="textInputSignIn" type="password" class="" name="mdpVerifInscription" placeholder="Verifiez votre mot de passe" required /><br><br>
+                        <input class="textInputSignIn" type="text" class="" name="adresseInscription" placeholder="Votre Adresse" required  /><br><br>  
+                        <input class="textInputSignIn" type="text" class="box-input" name="cpInscription" placeholder="Code Postal" /><br><br>
+                
+                        <input class="buttonSignIn SignInSubmit" type="submit" value="Confirmer"/><br><br>
+                        <input class="buttonSignIn SignInSubmit" type="reset" value="Effacer"/><br><br>
+                </form> 
+                <a class="leaveButton" href="./?action=defaut">Retour a l'accueil</a><br>
+        </div>  
+        
+
+        <p class="imageSignIn">
+                <img src="./images/imgconnexion.jpg" />
+        </p>
+</div>

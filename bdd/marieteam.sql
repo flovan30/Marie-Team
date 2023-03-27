@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : lun. 13 mars 2023 à 14:23
+-- Généré le : lun. 27 mars 2023 à 12:08
 -- Version du serveur : 8.0.31
 -- Version de PHP : 8.0.26
 
@@ -192,7 +192,7 @@ CREATE TABLE IF NOT EXISTS `periode` (
 INSERT INTO `periode` (`idPeriode`, `dateDebutPeriode`, `dateFinPeriode`) VALUES
 ('1', '2021-09-01', '2022-06-15'),
 ('2', '2022-06-16', '2022-09-15'),
-('3', '2022-09-16', '2023-05-31');
+('3', '2022-09-16', '2025-05-31');
 
 -- --------------------------------------------------------
 
@@ -570,8 +570,8 @@ CREATE TABLE IF NOT EXISTS `utilisateur` (
 
 INSERT INTO `utilisateur` (`IDutilisateur`, `NomUtilisateur`, `AdresseMailUtilisateur`, `MdpUtilisateur`, `AdresseUtilisateur`, `CpUtilisateur`, `RoleUtilisateur`) VALUES
 (1, 'Utilisateur', 'utilisateur@gmail.com', 'df86714fc534e90b5ffa0726164516b16f207e7fb20a3b823be218c26c789f03', '42 avenue utilisateur', 14785, 0),
-(2, 'Technicien', 'technicien@gmail.com', 'df86714fc534e90b5ffa0726164516b16f207e7fb20a3b823be218c26c789f03', '42 rue technicien', 14785, 0),
-(3, 'Admin', 'admin@gmail.com', 'df86714fc534e90b5ffa0726164516b16f207e7fb20a3b823be218c26c789f03', '42 rue admin', 14785, 0);
+(2, 'Technicien', 'technicien@gmail.com', 'df86714fc534e90b5ffa0726164516b16f207e7fb20a3b823be218c26c789f03', '42 rue technicien', 14785, 1),
+(3, 'Admin', 'admin@gmail.com', 'df86714fc534e90b5ffa0726164516b16f207e7fb20a3b823be218c26c789f03', '42 rue admin', 14785, 2);
 
 --
 -- Contraintes pour les tables déchargées
