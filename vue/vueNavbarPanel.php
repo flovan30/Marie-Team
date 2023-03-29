@@ -24,7 +24,9 @@
     </div>
     
 	<ul>
+        <?php if ($util["RoleUtilisateur"]==2) { ?>
 		<li><a href="#Privileges">Table des privilèges</a></li>
+        <?php } ?>
         <li><a href="#nbReservationMoy">Réservations moyennes</a></li> 
 		<li><a href="#chiffreAffaire">Chiffre d'affaire</a></li>
 		<li><a href="#nbPersonneTransp">Nombre de passagers</a></li>

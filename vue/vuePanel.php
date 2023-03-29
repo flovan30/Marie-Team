@@ -1,28 +1,50 @@
 <div style="margin-left: 300px">
-    
+<style>
+        @import url("css/pannel.css");
+</style>
+
 
     <?php 
         if ($util["RoleUtilisateur"]==2) { 
     ?>
-    <section id=Privileges>
-
-        <h3>Technicien</h3>
-        <?php 
-        $resultats = VerifRoleTechnicien();
-        foreach ($resultats as $resultat) {
-            echo implode(", ", $resultat) . "<br/>";
-        }
-        ?>
-        <h3>Admin</h3>
-
-        <?php
-        $resultats = VerifRoleAdmin();
-        foreach ($resultats as $resultat) {
-            echo implode(", ", $resultat) . "<br/>";
-        }
-        
-        ?>
-        <br><br>
+    <section id="Privileges">
+  <h2>Privilèges</h2>
+  <?php
+  $techniciens = VerifRoleTechnicien();
+  $admins = VerifRoleAdmin();
+  ?>
+  <table>
+    <caption>Liste des utilisateurs avec des privilèges</caption>
+    <thead>
+      <tr>
+        <th>Rôle</th>
+        <th>ID</th>
+        <th>Nom</th>
+        <th>Adresse mail</th>
+      </tr>
+    </thead>
+    <tbody>
+      <?php
+      foreach ($techniciens as $utilisateur) {
+        echo "<tr>";
+        echo "<td>Technicien</td>";
+        echo "<td>{$utilisateur['idUtilisateur']}</td>";
+        echo "<td>{$utilisateur['nomUtilisateur']}</td>";
+        echo "<td>{$utilisateur['adresseMailUtilisateur']}</td>";
+        echo "</tr>";
+      }
+      foreach ($admins as $utilisateur) {
+        echo "<tr>";
+        echo "<td>Admin</td>";
+        echo "<td>{$utilisateur['idUtilisateur']}</td>";
+        echo "<td>{$utilisateur['nomUtilisateur']}</td>";
+        echo "<td>{$utilisateur['adresseMailUtilisateur']}</td>";
+        echo "</tr>";
+      }
+      ?>
+    </tbody>
+  </table>
+</section>
     </section>
     <?php
         }
@@ -32,48 +54,36 @@
 
     </section>
     
-    <section id=chiffreAffaire>
-        <?php 
+    <section id="chiffreAffaire">
+    <h2>Chiffre d'affaire</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Période</th>
+                <th>Chiffre d'affaire</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Semaine</td>
+                <td><?php echo TotalchiffreAffairedelaSemaine() ?: '0'; ?></td>
+            </tr>
+            <tr>
+                <td>Mois</td>
+                <td><?php echo TotalchiffreAffaireDuMois() ?: '0'; ?></td>
+            </tr>
+            <tr>
+                <td>Année</td>
+                <td><?php echo TotalchiffreAffaireDeLannee() ?: '0'; ?></td>
+            </tr>
+            <tr>
+                <td>Total</td>
+                <td><?php echo TotalchiffreAffaire() ?: '0'; ?></td>
+            </tr>
+        </tbody>
+    </table>
+</section>
 
-
-        $lastWeekCA = TotalchiffreAffairedelaSemaine();
-        echo "<div>Le chiffre d'affaire de cette semaine est de : </div>";
-        if ($lastWeekCA == 0) {
-            echo '0';
-        } else {
-            echo $lastWeek;
-        }
-
-
-        $lastMonthCA = TotalchiffreAffaireDuMois();
-        echo "<div>Le chiffre d'affaire de ce mois-ci est de : </div>";
-        if ($lastMonthCA == 0) {
-        echo '0';   
-        } else {
-        echo $lastMonthCA;
-        }
-
-        $lastYearCA = TotalchiffreAffaireDeLannee();
-        echo "<div>Le chiffre d'affaire de cette année-ci est de : </div>";
-        if ($lastYearCA == 0) {
-        echo '0';   
-        } else {
-        echo $lastYearCA;
-        }
-
-        $everytimeCA = TotalchiffreAffaire();
-        echo "<div>Le chiffre d'affaire total est de : </div>";
-        if ($everytimeCA== 0) {
-        echo '0';   
-        } else {
-        echo $everytimeCA;
-        }
-
-    
-        
-        ?>
-        
-    </section>
     <br><br><br>
     <section id=nbPersonneTransp>
         <?php

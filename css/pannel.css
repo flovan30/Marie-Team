@@ -1,0 +1,75 @@
+#Privileges {
+    padding: 20px;
+}
+
+#Privileges table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#Privileges caption {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+#Privileges thead tr th {
+    background-color: #ddd;
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+#Privileges tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+#Privileges tbody tr:hover {
+    background-color: #ddd;
+}
+
+#Privileges td {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+/*------------------------------------*/
+
+#chiffreAffaire {
+    margin-top: 50px;
+    text-align: center;
+}
+
+#chiffreAffaire h3 {
+    font-size: 24px;
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+
+#chiffreAffaire table {
+    margin: 0 auto;
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 80%;
+}
+
+#chiffreAffaire th {
+    background-color: #d8d8d8;
+    border: 1px solid #a8a8a8;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 10px;
+}
+
+#chiffreAffaire td {
+    border: 1px solid #a8a8a8;
+    font-size: 16px;
+    padding: 10px;
+}
+
+#chiffreAffaire tr:nth-child(odd) {
+    background-color: #f8f8f8;
+}
+
+#chiffreAffaire tr:hover {
+    background-color: #e0e0e0;
+}
