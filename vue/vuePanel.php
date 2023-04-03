@@ -85,11 +85,13 @@
 <section id=nbPersonneTransp>
 
         <?php
+
         $lastWeek = nbPassagersForLastWeek();
         $lastMonth = nbPassagersForLastMonth();
         $lastYear = nbPassagersForLastYear();
         $everytime = nbPassagersForEverytime();
         $evertimeByCategorie = nbPassagersForEverytimeByCodeCategorie();
+        
         ?>
 
         <div>Nombre de passagers ayant reservé et ayant voyagé selon la catégorie :<div>
