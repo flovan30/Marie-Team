@@ -3,11 +3,10 @@
         @import url("css/pannel.css");
 </style>
 
-
     <?php 
         if ($util["RoleUtilisateur"]==2) { 
     ?>
-    <section id="Privileges">
+<section id="Privileges">
   <h2>Privilèges</h2>
   <?php
   $techniciens = VerifRoleTechnicien();
@@ -45,16 +44,15 @@
     </tbody>
   </table>
 </section>
-    </section>
     <?php
         }
     ?>
     
-    <section id=nbReservationMoy>
+<section id=nbReservationMoy>
 
-    </section>
+</section>
     
-    <section id="chiffreAffaire">
+<section id="chiffreAffaire">
     <h2>Chiffre d'affaire</h2>
     <table>
         <thead>
@@ -84,8 +82,7 @@
     </table>
 </section>
 
-    <br><br><br>
-    <section id=nbPersonneTransp>
+<section id=nbPersonneTransp>
         <?php
 
 
@@ -159,5 +156,6 @@
       ';
 
         ?>
-    </section>
+</section>
+
 </div>
