@@ -154,7 +154,7 @@ function getPrixByCodeCategorieAndNumTypeAndIdPeriode($codeCategorie, $numType, 
 
         $resultat = $req->fetch(PDO::FETCH_ASSOC);
         if ($resultat) {
-            return $resultat['prix'];
+            return intval($resultat['prix']);
         }
     } catch (PDOException $e) {
         print "Erreur !: " . $e->getMessage();

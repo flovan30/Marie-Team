@@ -47,5 +47,4 @@ if (isset($_POST['nomInscription']) == 1 && isset($_POST['mailInscription']) == 
 } else {
     echo "error formulaire";
 }
-}
 ?>

@@ -48,13 +48,17 @@
                                     print_r(getPrixByCodeCategorieAndNumTypeAndIdPeriode($infosType['codeCategorie'], $infosType['numType'], $periodeActuelle, $codeLiaison));
                                     ?> €
                                 </td>
+                                <td>
+                                    <input type="number" min="0" value="0" max="20" name="<?php echo ($type['libelleType']) ?>" id="">
+                                    maximum 20
+                                </td>
                             </tr>
                         <?php } ?>
                     </tbody>
                 </table>
 
             </div>
-            <button type="submit" class="btn btn-primary">Enregistrer la reservation</button>
+            <button type="submit" class="submit-btn">Enregistrer la reservation</button>
         </form>
     <?php
     } else {
