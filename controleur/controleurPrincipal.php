@@ -6,6 +6,7 @@ function controleurPrincipal($action)
     $lesActions["defaut"] = "accueil.php";
     $lesActions["destination"] = "destination.php";
     $lesActions["reservation"] = "reservation.php";
+    $lesActions["confirmationReservation"] = "confirmationReservation.php";
     $lesActions["tarifs"] = "tarifs.php";
     $lesActions["connexion"] = "connexion.php";
     $lesActions["inscription"] = "inscription.php";

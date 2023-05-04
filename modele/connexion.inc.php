@@ -13,6 +13,7 @@ function login($mail, $mdp)
     $mdpBD = $util["MdpUtilisateur"];
     $user = $util["NomUtilisateur"];
     $role = $util["RoleUtilisateur"];
+    $adresseUtilisateur = $util["AdresseUtilisateur"];
     $CpUtilisateur = $util["CpUtilisateur"];
 
     if (($mdpBD) == hash('sha256', $mdp)) {
@@ -20,6 +21,7 @@ function login($mail, $mdp)
         $_SESSION["MdpUtilisateur"] = $mdpBD;
         $_SESSION["NomUtilisateur"] = $user;
         $_SESSION["RoleUtilisateur"] = $role;
+        $_SESSION["AdresseUtilisateur"] = $adresseUtilisateur;
         $_SESSION["CpUtilisateur"] = $CpUtilisateur;
     }
 }
