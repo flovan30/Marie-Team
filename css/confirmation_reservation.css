@@ -1,0 +1,37 @@
+main
+{
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0 50px;
+    background-color: #F0F0F0;
+    padding: 30px;
+    border-radius: 10px;
+    border: 1px solid #E0E0E0;
+}
+
+.recap
+{
+    margin: 0 50px 20px;
+    background-color: #D9DDED;
+    padding: 30px;
+    border-radius: 10px;
+    border: 2px solid #000000;
+}
+
+.hommeButton
+{
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    margin: 4px 2px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+.hommeButton:hover
+{
+    text-decoration: none;
+    background-color: #3E9142;
+}

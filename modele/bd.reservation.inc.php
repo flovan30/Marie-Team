@@ -1,5 +1,6 @@
 <?php
 
+include_once "connexionBDD.inc.php";
 function getNomPortDepartByNumTraversee($numTraversee)
 {
     $resultat = array();

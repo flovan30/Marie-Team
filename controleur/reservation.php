@@ -34,6 +34,7 @@ if (isLoggedOn()) {
             $prix = getPrixByCodeCategorieAndNumTypeAndIdPeriode($infosType['codeCategorie'], $infosType['numType'], $periodeActuelle, $codeLiaison);
             $prixType[$type['libelleType']] = $prix;
         }
+        print_r($prixType);
         include "$racine/vue/vueNavbar.php";
         include "$racine/vue/vueAffichageReservation.php";
         include "$racine/vue/vueFooter.php";
