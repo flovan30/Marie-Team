@@ -73,3 +73,45 @@
 #chiffreAffaire tr:hover {
     background-color: #e0e0e0;
 }
+
+/*------------------------------------*/
+
+#nbPersonneTransp {
+    margin-top: 50px;
+    text-align: center;
+}
+
+#nbPersonneTransp h3 {
+    font-size: 24px;
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+
+#nbPersonneTransp table {
+    margin: 0 auto;
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 80%;
+}
+
+#nbPersonneTransp th {
+    background-color: #d8d8d8;
+    border: 1px solid #a8a8a8;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 10px;
+}
+
+#nbPersonneTransp td {
+    border: 1px solid #a8a8a8;
+    font-size: 16px;
+    padding: 10px;
+}
+
+#nbPersonneTransp tr:nth-child(odd) {
+    background-color: #f8f8f8;
+}
+
+#nbPersonneTransp tr:hover {
+    background-color: #e0e0e0;
+}

@@ -108,16 +108,16 @@
 
         ?>
 
-        <div>Nombre de passagers ayant reservé et ayant voyagé selon la catégorie :<div>
+        <h2>Nombre de passagers</h2>
         
         <table>
             <thead>
                 <tr>
                     <th>Catégorie</th>
-                    <td>Par semaine</td>
-                    <td>Par mois</td>
-                    <td>Par an</td>
-                    <td>Depuis le début</td>
+                    <th>Par semaine</th>
+                    <th>Par mois</th>
+                    <th>Par an</th>
+                    <th>Depuis le début</th>
                 </tr>
             </thead>
             <tbody>
@@ -151,6 +151,7 @@
                 </tr>
             </tbody>
         </table>
+        <br><br><br>
 </section>
 
 </div>
