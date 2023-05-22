@@ -18,7 +18,6 @@ if (isset($_POST['nomInscription']) == 1 && isset($_POST['mailInscription']) == 
 
         /* Verification mail */
 
-
         $resultat = mysqli_query($base, "SELECT AdresseMailUtilisateur FROM utilisateur");
 
         while ($verifiMail = mysqli_fetch_row($resultat)) {
@@ -37,7 +36,7 @@ if (isset($_POST['nomInscription']) == 1 && isset($_POST['mailInscription']) == 
             alert('Votre compte a été bien registré')</script>";
         } else {
             echo "<script type='text/javascript'>
-            alert('test loupé   ')</script> ";
+            alert('test loupé')</script> ";
         }
     } else {
         echo "<script type='text/javascript'>

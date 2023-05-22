@@ -35,6 +35,19 @@
 
 }
 
+.titrenavprofilSecond {
+    font-size: 20px;
+    padding: 20px;
+    border-bottom: solid 2px black;
+    font-weight: bold;
+}
+
+.titrenavprofilSecond .btn1 {
+    color: red;
+}
+
+
+
 .titrenavprofil a {
     text-decoration: none;
     color: black;
@@ -78,6 +91,11 @@
 .numreserve {
     padding: 18px 30px;
     border-bottom: solid 2px;
+}
+
+.reservationNonDispo {
+    padding: 18px 30px;
+    text-align: center;
 }
 
 .liaison {

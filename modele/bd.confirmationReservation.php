@@ -184,16 +184,17 @@ function getPrixByCodeCategorieAndNumTypeAndIdPeriode($codeCategorie, $numType, 
     return 0;
 }
 
-function createReservationWithUserSession($nomReservation, $adresseReservation, $cpReservation, $numTraversee, $prix)
+function createReservationWithUserSession($nomReservation, $adresseReservation, $cpReservation, $numTraversee, $prix , $mail)
 {
     try {
         $cnx = connexionPDO();
-        $req = $cnx->prepare("INSERT INTO reservation (nomReservation, adresseReservation, cpReservation, villeReservation, numTraversee, dates, prix) VALUES (:nomReservation, :adresseReservation, :cpReservation, 'ville', :numTraversee, NOW(), :prix)");
+        $req = $cnx->prepare("INSERT INTO reservation (nomReservation, adresseReservation, cpReservation, villeReservation, numTraversee, dates, prix , AdresseMailUtilisateur) VALUES (:nomReservation, :adresseReservation, :cpReservation, 'ville', :numTraversee, NOW(), :prix, :AdresseMailUtilisateur)");
         $req->bindValue(':nomReservation', $nomReservation, PDO::PARAM_STR);
         $req->bindValue(':adresseReservation', $adresseReservation, PDO::PARAM_STR);
         $req->bindValue(':cpReservation', $cpReservation, PDO::PARAM_STR);
         $req->bindValue(':numTraversee', $numTraversee, PDO::PARAM_INT);
         $req->bindValue(':prix', $prix, PDO::PARAM_INT);
+        $req->bindValue(':AdresseMailUtilisateur', $mail, PDO::PARAM_STR);
         $req->execute();
     } catch (PDOException $e) {
         print "Erreur !: " . $e->getMessage();
@@ -203,16 +204,39 @@ function createReservationWithUserSession($nomReservation, $adresseReservation, 
 }
 
 // récupère le numReservation de la dernière réservation de l'utilisateur
-function getNumReservationByUserInfo($nomReservation, $adresseReservation, $cpReservation, $numTraversee)
+function getTotalReservationByUserInfo($mail)
 {
     $resultat = array();
     try {
         $cnx = connexionPDO();
-        $req = $cnx->prepare("SELECT numReservation FROM reservation WHERE nomReservation LIKE :nomReservation AND adresseReservation LIKE :adresseReservation AND cpReservation LIKE :cpReservation AND numTraversee LIKE :numTraversee ORDER BY numReservation DESC LIMIT 1");
+        $req = $cnx->prepare("SELECT * FROM reservation WHERE AdresseMailUtilisateur = :AdresseMailUtilisateur");
+        $req->bindValue(':AdresseMailUtilisateur', $mail, PDO::PARAM_STR);
+        $req->execute();
+
+        $ligne = $req->fetch(PDO::FETCH_ASSOC);
+        while ($ligne) {
+            $resultat[] = $ligne;
+            $ligne = $req->fetch(PDO::FETCH_ASSOC);
+        }
+    } catch (PDOException $e) {
+        print "Erreur !: " . $e->getMessage();
+        die();
+    }
+    return $resultat;
+}
+
+function getNumReservationByUserInfo($nomReservation, $adresseReservation, $cpReservation, $numTraversee, $mail)
+{
+    $resultat = array();
+    try {
+        $cnx = connexionPDO();
+        $req = $cnx->prepare("SELECT numReservation FROM reservation WHERE nomReservation LIKE :nomReservation AND adresseReservation LIKE :adresseReservation AND cpReservation LIKE :cpReservation AND numTraversee LIKE :numTraversee AND adresseMailUtilisateur LIKE :adresseMailUtilisateur ORDER BY numReservation DESC LIMIT 1");
         $req->bindValue(':nomReservation', $nomReservation, PDO::PARAM_STR);
         $req->bindValue(':adresseReservation', $adresseReservation, PDO::PARAM_STR);
         $req->bindValue(':cpReservation', $cpReservation, PDO::PARAM_STR);
         $req->bindValue(':numTraversee', $numTraversee, PDO::PARAM_INT);
+        $req->bindValue(':adresseMailUtilisateur', $mail, PDO::PARAM_STR);
+
         $req->execute();
 
         $resultat = $req->fetch(PDO::FETCH_ASSOC);
@@ -225,6 +249,37 @@ function getNumReservationByUserInfo($nomReservation, $adresseReservation, $cpRe
     }
     return 0;
 }
+
+function getCountReservationByUserInfo($mail)
+{
+    try {
+        $cnx = connexionPDO();
+        $req = $cnx->prepare("SELECT COUNT(*) AS total FROM reservation WHERE AdresseMailUtilisateur = :AdresseMailUtilisateur");
+        $req->bindValue(':AdresseMailUtilisateur', $mail, PDO::PARAM_STR);
+        $req->execute();
+        $ligne = $req->fetchColumn();
+    } catch (PDOException $e) {
+        print "Erreur !: " . $e->getMessage();
+        die();
+    }
+    return $ligne;
+}
+
+function getLaReservationByUserInfo($mail)
+{
+    try {
+        $cnx = connexionPDO();
+        $req = $cnx->prepare("SELECT COUNT(*) AS total FROM reservation WHERE AdresseMailUtilisateur = :AdresseMailUtilisateur");
+        $req->bindValue(':AdresseMailUtilisateur', $mail, PDO::PARAM_STR);
+        $req->execute();
+        $ligne = $req->fetchColumn();
+    } catch (PDOException $e) {
+        print "Erreur !: " . $e->getMessage();
+        die();
+    }
+    return $ligne;
+}
+
 
 
 function createEnregistrementWithInfoTypeAndNumReservation($codeCategorie, $numType, $numReservation, $quantite)

@@ -90,78 +90,67 @@
         $lastMonth = nbPassagersForLastMonth();
         $lastYear = nbPassagersForLastYear();
         $everytime = nbPassagersForEverytime();
-        $evertimeByCategorie = nbPassagersForEverytimeByCodeCategorie();
-        
+
+        $lastWeekByCategorieA = nbPassagersLastWeekByCodeCategorieA();
+        $lastMonthByCategorieA = nbPassagersLastMonthByCodeCategorieA();
+        $lastYearByCategorieA = nbPassagersLastYearByCodeCategorieA();
+        $evertimeByCategorieA = nbPassagersForEverytimeByCodeCategorieA();
+
+        $lastWeekByCategorieB = nbPassagersLastWeekByCodeCategorieB();
+        $lastMonthByCategorieB = nbPassagersLastMonthByCodeCategorieB();
+        $lastYearByCategorieB = nbPassagersLastYearByCodeCategorieB();
+        $evertimeByCategorieB = nbPassagersForEverytimeByCodeCategorieB();
+
+        $lastWeekByCategorieC = nbPassagersLastWeekByCodeCategorieC();
+        $lastMonthByCategorieC = nbPassagersLastMonthByCodeCategorieC();
+        $lastYearByCategorieC = nbPassagersLastYearByCodeCategorieC();
+        $evertimeByCategorieC = nbPassagersForEverytimeByCodeCategorieC();
+
         ?>
 
         <div>Nombre de passagers ayant reservé et ayant voyagé selon la catégorie :<div>
         
         <table>
-            <tr>
-                <td></td>
-                <td>Par semaine</td>
-                <td>Par mois</td>
-                <td>Par an</td>
-                <td>Depuis le début</td>
-            </tr>
-            <tr>
-                <td>Catégorie "Passager"</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td>Catégorie "Véhicule < 2m"</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>  
-            </tr>
-            <tr>
-                <td>Catégorie "Véhicule > 2m"</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td>Total
-                </td><td>
-                    <?php
-                        if ($lastWeek[0]['totalPassagers'] == 0) {
-                            echo '0';
-                        } else {
-                            echo $lastWeekPassager[0]['totalPassagers'];
-                        }
-                    ?>
-                </td><td>
-                    <?php
-                        if ($lastMonth[0]['totalPassagers'] == 0) {
-                            echo '0';   
-                        } else {
-                            echo $lastMonth[0]['totalPassagers'];
-                        }
-                    ?>
-                </td><td>
-                    <?php
-                        if($lastYear[0]['totalPassagers'] == 0) {
-                            echo '0';   
-                        } else {
-                            echo $lastYear[0]['totalPassagers'];
-                        }
-                    ?>
-                </td><td>
-                    <?php
-                        if ($everytime[0]['totalPassagers'] == 0) {
-                            echo '0';   
-                        } else {
-                            echo $everytime[0]['totalPassagers'];
-                        }
-                    ?>
-                </td>  
-            </tr>
-      </table>
+            <thead>
+                <tr>
+                    <th>Catégorie</th>
+                    <td>Par semaine</td>
+                    <td>Par mois</td>
+                    <td>Par an</td>
+                    <td>Depuis le début</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Passager</td>
+                    <td><?php echo $lastWeekByCategorieA['totalPassagers'] ?: '0'; ?></td>
+                    <td><?php echo $lastMonthByCategorieA['totalPassagers'] ?: '0'; ?></td>
+                    <td><?php echo $lastYearByCategorieA['totalPassagers'] ?: '0'; ?></td>
+                    <td><?php echo $evertimeByCategorieA['totalPassagers'] ?: '0'; ?></td>
+                </tr>
+                <tr>
+                    <td>Véhicule < 2m</td>
+                    <td><?php echo $lastWeekByCategorieB['totalPassagers'] ?: '0'; ?></td>
+                    <td><?php echo $lastMonthByCategorieB['totalPassagers'] ?: '0'; ?></td>
+                    <td><?php echo $lastYearByCategorieB['totalPassagers'] ?: '0'; ?></td>
+                    <td><?php echo $evertimeByCategorieB['totalPassagers'] ?: '0'; ?></td>
+                </tr>
+                <tr>
+                    <td>Véhicule > 2m</td>
+                    <td><?php echo $lastWeekByCategorieC['totalPassagers'] ?: '0'; ?></td>
+                    <td><?php echo $lastMonthByCategorieC['totalPassagers'] ?: '0'; ?></td>
+                    <td><?php echo $lastYearByCategorieC['totalPassagers'] ?: '0'; ?></td>
+                    <td><?php echo $evertimeByCategorieC['totalPassagers'] ?: '0'; ?></td>
+                </tr>
+                <tr>
+                    <td>Total</td>
+                    <td><?php echo $lastWeek['totalPassagers'] ?: '0'; ?></td>
+                    <td><?php echo $lastMonth['totalPassagers'] ?: '0'; ?></td>
+                    <td><?php echo $lastYear['totalPassagers'] ?: '0'; ?></td>
+                    <td><?php echo $everytime['totalPassagers'] ?: '0'; ?></td>
+                </tr>
+            </tbody>
+        </table>
 </section>
 
 </div>

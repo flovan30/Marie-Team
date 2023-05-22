@@ -22,22 +22,42 @@
     <div class="nom">Nom : <?= $util["NomUtilisateur"] ?></div>
     <div class="adresse">Adresse : <?= $util["AdresseUtilisateur"] ?> </div>
     <div class="cp">Code Postal : <?= $util["CpUtilisateur"] ?> </div>
-    <div class="mail">Email : <?= $util["RoleUtilisateur"] ?> </div>
+    <div class="mail">Email : <?= $util["AdresseMailUtilisateur"] ?> </div>
 </div>
 </div>
 
 
 
-<h1>Mes réservations de test :</h1>
+<h1>Mes reservations : </h1>
 
 
-<!-- faire une boucle si plusieur reservation --> 
+<!-- faire une boucle si plusieur reservation -->
+
+
+
+<?php 
+if ($ligne >= 1) { 
+for ($i = 0; $i < $ligne; $i++) {
+
+?>
 
 <div class="blocprofil">
-<div class="numreserve">Numéros de réservation : <?= $util["AdresseUtilisateur"] ?> </div>
-<div class="liaison">Liaison : <?= $util["AdresseUtilisateur"] ?> </div>
-<div class="prix">Prix : <?= $util["AdresseUtilisateur"] ?> </div>
-<div class="reserve">Réservation : <?= $util["AdresseUtilisateur"] ?> </div>
+<div class="numreserve">Numéros de réservation : <?= $info[$i]['numReservation'] ?> </div>
+<div class="liaison">Nom de la Réservation : <?= $info[$i]["nomReservation"] ?> </div>
+<div class="liaison">Date de la réservation : <?= $info[$i]["dates"] ?> </div>
+<div class="prix">Prix : <?= $info[$i]["prix"] ?>€ </div>
 </div>
+
+<?php
+};
+}else { ?>
+
+    <div class="blocprofil">
+    <div class="reservationNonDispo">Pas de réservation disponible</div>
+    </div>
+
+<?php
+}
+?>
 </div>
 

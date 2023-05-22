@@ -7,7 +7,7 @@
         <div class="formSignIn">
                 <h1>Inscription</h1><br>
 
-                <form action="modele/inscriptionReussie.php" method="POST">
+                <form action="modele/inscription.inc.php" method="POST">
                         <input class="textInputSignIn" type="text" class="" name="nomInscription" placeholder="Votre Nom" required /><br><br>
                         <input class="textInputSignIn" type="text" class="" name="mailInscription" placeholder="Votre Email" required /><br><br>
                         <input class="textInputSignIn" type="password" class="" name="mdpInscription" placeholder="Mot de passe" required /><br><br>

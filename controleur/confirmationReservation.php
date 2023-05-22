@@ -83,8 +83,8 @@ if (isLoggedOn()) {
         echo ($prixTTC);
         echo ("<br><br>");
 
-        // createReservationWithUserSession($_SESSION["NomUtilisateur"], $util["AdresseUtilisateur"], $util["CpUtilisateur"], $numTraversee, $prixTTC);
-        $numReservation = getNumReservationByUserInfo($_SESSION['NomUtilisateur'], $util["AdresseUtilisateur"], $util["CpUtilisateur"], $numTraversee);
+        createReservationWithUserSession($_SESSION["NomUtilisateur"], $util["AdresseUtilisateur"], $util["CpUtilisateur"], $numTraversee, $prixTTC , $util['AdresseMailUtilisateur']);
+        $numReservation = getNumReservationByUserInfo($_SESSION['NomUtilisateur'], $util["AdresseUtilisateur"], $util["CpUtilisateur"], $numTraversee, $util['AdresseMailUtilisateur']);
 
         // enregistrement des types dans la table 'enregistrer'
         foreach ($types as $type) {

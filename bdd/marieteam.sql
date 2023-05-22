@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : dim. 23 avr. 2023 à 01:14
+-- Généré le : lun. 22 mai 2023 à 15:27
 -- Version du serveur : 8.0.31
--- Version de PHP : 8.1.13
+-- Version de PHP : 8.0.26
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -163,17 +163,38 @@ CREATE TABLE IF NOT EXISTS `enregistrer` (
 --
 
 INSERT INTO `enregistrer` (`codeCategorie`, `numType`, `numReservation`, `quantité`) VALUES
-('A', 1, 1, 10),
-('A', 1, 2, 150),
-('A', 2, 1, 10),
-('A', 3, 1, 10),
-('B', 1, 1, 1),
-('B', 1, 2, 70),
-('B', 2, 1, 1),
-('C', 1, 1, 1),
-('C', 1, 2, 50),
-('C', 2, 1, 1),
-('C', 3, 1, 1);
+('A', 1, 16, 1),
+('A', 1, 17, 2),
+('A', 1, 18, 1),
+('A', 1, 19, 1),
+('A', 2, 16, 1),
+('A', 2, 17, 2),
+('A', 2, 18, 1),
+('A', 2, 19, 1),
+('A', 3, 16, 1),
+('A', 3, 17, 2),
+('A', 3, 18, 1),
+('A', 3, 19, 1),
+('B', 1, 16, 1),
+('B', 1, 17, 2),
+('B', 1, 18, 1),
+('B', 1, 19, 1),
+('B', 2, 16, 1),
+('B', 2, 17, 2),
+('B', 2, 18, 1),
+('B', 2, 19, 1),
+('C', 1, 16, 1),
+('C', 1, 17, 2),
+('C', 1, 18, 1),
+('C', 1, 19, 1),
+('C', 2, 16, 1),
+('C', 2, 17, 2),
+('C', 2, 18, 1),
+('C', 2, 19, 1),
+('C', 3, 16, 1),
+('C', 3, 17, 2),
+('C', 3, 18, 1),
+('C', 3, 19, 1);
 
 -- --------------------------------------------------------
 
@@ -184,7 +205,7 @@ INSERT INTO `enregistrer` (`codeCategorie`, `numType`, `numReservation`, `quanti
 DROP TABLE IF EXISTS `equipement`;
 CREATE TABLE IF NOT EXISTS `equipement` (
   `idEquipement` int NOT NULL AUTO_INCREMENT,
-  `libelleEquipement` varchar(60) COLLATE utf8mb3_bin NOT NULL,
+  `libelleEquipement` varchar(60) CHARACTER SET utf8mb3 COLLATE utf8mb3_bin NOT NULL,
   PRIMARY KEY (`idEquipement`)
 ) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_bin;
 
@@ -329,17 +350,20 @@ CREATE TABLE IF NOT EXISTS `reservation` (
   `numTraversee` int NOT NULL,
   `dates` date NOT NULL,
   `prix` int NOT NULL,
+  `AdresseMailUtilisateur` varchar(128) CHARACTER SET utf8mb3 COLLATE utf8mb3_bin DEFAULT NULL,
   PRIMARY KEY (`numReservation`),
   KEY `numTraversee` (`numTraversee`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_bin;
 
 --
 -- Déchargement des données de la table `reservation`
 --
 
-INSERT INTO `reservation` (`numReservation`, `nomReservation`, `adresseReservation`, `cpReservation`, `villeReservation`, `numTraversee`, `dates`, `prix`) VALUES
-(1, 'Peterson', 'Avenue Gaston Berger', '59000', 'Lille', 1, '2021-09-01', 1304),
-(2, 'John', 'Avenue Gaston Berger', '59000', 'Lille', 4, '1899-12-31', 0);
+INSERT INTO `reservation` (`numReservation`, `nomReservation`, `adresseReservation`, `cpReservation`, `villeReservation`, `numTraversee`, `dates`, `prix`, `AdresseMailUtilisateur`) VALUES
+(16, 'Utilisateur1', '2 rue utilisateur', '14785', 'ville', 1, '2023-05-22', 962, 'utilisateur1@gmail.com'),
+(17, 'Utilisateur1', '2 rue utilisateur', '14785', 'ville', 1, '2023-05-22', 1924, 'utilisateur1@gmail.com'),
+(18, 'Utilisateur1', '2 rue utilisateur', '14785', 'ville', 1, '2023-05-22', 962, 'utilisateur1@gmail.com'),
+(19, 'Utilisateur1', '2 rue utilisateur', '14785', 'ville', 2, '2023-05-22', 1187, 'utilisateur1@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -656,70 +680,19 @@ CREATE TABLE IF NOT EXISTS `utilisateur` (
   `AdresseUtilisateur` varchar(128) CHARACTER SET utf8mb3 COLLATE utf8mb3_bin NOT NULL,
   `CpUtilisateur` int NOT NULL,
   `RoleUtilisateur` int DEFAULT NULL,
+  `ville` varchar(80) CHARACTER SET utf8mb3 COLLATE utf8mb3_bin DEFAULT NULL,
   PRIMARY KEY (`IDutilisateur`)
-) ENGINE=MyISAM AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_bin;
+) ENGINE=MyISAM AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_bin;
 
 --
 -- Déchargement des données de la table `utilisateur`
 --
 
-INSERT INTO `utilisateur` (`IDutilisateur`, `NomUtilisateur`, `AdresseMailUtilisateur`, `MdpUtilisateur`, `AdresseUtilisateur`, `CpUtilisateur`, `RoleUtilisateur`) VALUES
-(1, 'Utilisateur', 'utilisateur@gmail.com', 'df86714fc534e90b5ffa0726164516b16f207e7fb20a3b823be218c26c789f03', '42 avenue utilisateur', 14785, 0),
-(2, 'Technicien', 'technicien@gmail.com', 'df86714fc534e90b5ffa0726164516b16f207e7fb20a3b823be218c26c789f03', '42 rue technicien', 14785, 1),
-(3, 'Admin', 'admin@gmail.com', 'df86714fc534e90b5ffa0726164516b16f207e7fb20a3b823be218c26c789f03', '42 rue admin', 14785, 2);
-
---
--- Contraintes pour les tables déchargées
---
-
---
--- Contraintes pour la table `bateaufret`
---
-ALTER TABLE `bateaufret`
-  ADD CONSTRAINT `bateaufret_ibfk_1` FOREIGN KEY (`idBateau`) REFERENCES `bateau` (`idBateau`);
-
---
--- Contraintes pour la table `bateauvoyageur`
---
-ALTER TABLE `bateauvoyageur`
-  ADD CONSTRAINT `bateauvoyageur_ibfk_1` FOREIGN KEY (`idBateau`) REFERENCES `bateau` (`idBateau`);
-
---
--- Contraintes pour la table `contenir`
---
-ALTER TABLE `contenir`
-  ADD CONSTRAINT `contenir_ibfk_1` FOREIGN KEY (`codeCategorie`) REFERENCES `categorie` (`codeCategorie`),
-  ADD CONSTRAINT `contenir_ibfk_2` FOREIGN KEY (`idBateau`) REFERENCES `bateau` (`idBateau`);
-
---
--- Contraintes pour la table `enregistrer`
---
-ALTER TABLE `enregistrer`
-  ADD CONSTRAINT `enregistrer_ibfk_1` FOREIGN KEY (`codeCategorie`,`numType`) REFERENCES `type` (`codeCategorie`, `numType`),
-  ADD CONSTRAINT `enregistrer_ibfk_2` FOREIGN KEY (`numReservation`) REFERENCES `reservation` (`numReservation`);
-
---
--- Contraintes pour la table `etre_equipé`
---
-ALTER TABLE `etre_equipé`
-  ADD CONSTRAINT `etre_equipé_ibfk_1` FOREIGN KEY (`idBateau`) REFERENCES `bateau` (`idBateau`),
-  ADD CONSTRAINT `etre_equipé_ibfk_2` FOREIGN KEY (`idEquipement`) REFERENCES `equipement` (`idEquipement`);
-
---
--- Contraintes pour la table `liaison`
---
-ALTER TABLE `liaison`
-  ADD CONSTRAINT `liaison_ibfk_1` FOREIGN KEY (`idPort`) REFERENCES `port` (`idPort`),
-  ADD CONSTRAINT `liaison_ibfk_2` FOREIGN KEY (`idPort_1`) REFERENCES `port` (`idPort`),
-  ADD CONSTRAINT `liaison_ibfk_3` FOREIGN KEY (`idSecteur`) REFERENCES `secteur` (`idSecteur`);
-
---
--- Contraintes pour la table `tarifer`
---
-ALTER TABLE `tarifer`
-  ADD CONSTRAINT `tarifer_ibfk_1` FOREIGN KEY (`codeLiaison`) REFERENCES `liaison` (`codeLiaison`),
-  ADD CONSTRAINT `tarifer_ibfk_2` FOREIGN KEY (`idPeriode`) REFERENCES `periode` (`idPeriode`),
-  ADD CONSTRAINT `tarifer_ibfk_3` FOREIGN KEY (`codeCategorie`,`numType`) REFERENCES `type` (`codeCategorie`, `numType`);
+INSERT INTO `utilisateur` (`IDutilisateur`, `NomUtilisateur`, `AdresseMailUtilisateur`, `MdpUtilisateur`, `AdresseUtilisateur`, `CpUtilisateur`, `RoleUtilisateur`, `ville`) VALUES
+(1, 'Utilisateur', 'utilisateur@gmail.com', 'df86714fc534e90b5ffa0726164516b16f207e7fb20a3b823be218c26c789f03', '42 avenue utilisateur', 14785, 0, 'lille1'),
+(2, 'Technicien', 'technicien@gmail.com', 'df86714fc534e90b5ffa0726164516b16f207e7fb20a3b823be218c26c789f03', '42 rue technicien', 14785, 1, 'lille2'),
+(3, 'Admin', 'admin@gmail.com', 'df86714fc534e90b5ffa0726164516b16f207e7fb20a3b823be218c26c789f03', '42 rue admin', 14785, 2, 'lille3'),
+(15, 'Utilisateur1', 'utilisateur1@gmail.com', 'df86714fc534e90b5ffa0726164516b16f207e7fb20a3b823be218c26c789f03', '2 rue utilisateur', 14785, 0, NULL);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
