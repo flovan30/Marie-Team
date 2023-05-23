@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : mar. 23 mai 2023 à 13:35
+-- Généré le : mar. 23 mai 2023 à 13:44
 -- Version du serveur : 8.0.31
--- Version de PHP : 8.0.26
+-- Version de PHP : 8.1.13
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -70,6 +70,7 @@ DROP TABLE IF EXISTS `bateauvoyageur`;
 CREATE TABLE IF NOT EXISTS `bateauvoyageur` (
   `idBateau` int NOT NULL,
   `vitesseMax` int NOT NULL,
+  `cheminImageBatVoyageur` varchar(100) COLLATE utf8mb3_bin DEFAULT NULL,
   PRIMARY KEY (`idBateau`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_bin;
 
@@ -77,12 +78,12 @@ CREATE TABLE IF NOT EXISTS `bateauvoyageur` (
 -- Déchargement des données de la table `bateauvoyageur`
 --
 
-INSERT INTO `bateauvoyageur` (`idBateau`, `vitesseMax`) VALUES
-(1, 50),
-(2, 24),
-(3, 40),
-(4, 50),
-(5, 35);
+INSERT INTO `bateauvoyageur` (`idBateau`, `vitesseMax`, `cheminImageBatVoyageur`) VALUES
+(1, 50, 'src\\\\images\\\\BateauVoyageur\\\\MegaMax-24.jpg'),
+(2, 24, 'src\\\\images\\\\BateauVoyageur\\\\Triple EClass.jpg'),
+(3, 40, 'src\\\\images\\\\BateauVoyageur\\\\PanMax.jpg'),
+(4, 50, 'src\\\\images\\\\BateauVoyageur\\\\ICoah.jpg'),
+(5, 35, 'src\\\\images\\\\BateauVoyageur\\\\PingOurs.jpg');
 
 -- --------------------------------------------------------
 
