@@ -153,5 +153,41 @@
         </table>
         <br><br><br>
 </section>
+<section id=nbPersonneTransp>
+<h2>Ajout de liaison</h2>
+
+<form action="./?action=panel" method="POST">
+    <label for="port1">Port 1 :</label>
+    <select name="Port1" id="port1">
+        <?php 
+        for ($i = 0; $i < count($listePort); $i++) {
+            echo '<option value="'.$listePort[$i]['nomPort'].'">'.$listePort[$i]['nomPort'].'</option>';
+        }
+        ?>
+    </select>
+    <br>
+    <p>Vers</p>
+    <label for="port2">Port 2 :</label>
+    <select name="Port2" id="port2">
+        <?php 
+        for ($i = 0; $i < count($listePort); $i++) {
+            echo '<option value="'.$listePort[$i]['nomPort'].'">'.$listePort[$i]['nomPort'].'</option>';
+        }
+        ?>
+    </select>
+    <br><br>
+    Distance : <input type="number" name="distance" step="1" required><br><br>
+    <label for="secteur">Secteur :</label>
+    <select name="secteur" id="secteur">
+        <?php
+        for ($i = 0; $i < count($listeSecteur); $i++) {
+            echo '<option value="'.$listeSecteur[$i]['nomSecteur'].'">'.$listeSecteur[$i]['nomSecteur'].'</option>';
+        }
+        ?>
+    </select><br><br>        
+    <input class="buttonSignIn SignInSubmit" type="submit" value="Confirmer"/><br><br>
+</form>
+
+</section>
 
 </div>

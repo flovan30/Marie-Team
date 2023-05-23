@@ -1,0 +1,20 @@
+CREATE USER 'Technicien'@'localhost' IDENTIFIED BY 'Password1*';
+CREATE USER 'Admin'@'localhost' IDENTIFIED BY 'Password1*';
+
+
+GRANT SELECT,INSERT,DELETE ON marieteam.bateau TO 'Technicien'@'localhost';
+GRANT SELECT,INSERT,DELETE ON marieteam.bateaufret TO 'Technicien'@'localhost';
+GRANT SELECT,INSERT,DELETE ON marieteam.bateauvoyageur TO 'Technicien'@'localhost';
+GRANT SELECT,INSERT,DELETE ON marieteam.categorie TO 'Technicien'@'localhost';
+GRANT SELECT,INSERT,DELETE ON marieteam.contenir TO 'Technicien'@'localhost';
+GRANT SELECT,INSERT,DELETE ON marieteam.equipement TO 'Technicien'@'localhost';
+GRANT SELECT,INSERT,DELETE ON marieteam.etre_equipé TO 'Technicien'@'localhost';
+GRANT SELECT,INSERT,DELETE ON marieteam.liaison TO 'Technicien'@'localhost';
+GRANT SELECT,INSERT,DELETE ON marieteam.periode TO 'Technicien'@'localhost';
+GRANT SELECT,INSERT,DELETE ON marieteam.port TO 'Technicien'@'localhost';
+GRANT SELECT,INSERT,DELETE ON marieteam.secteur TO 'Technicien'@'localhost';
+GRANT SELECT,INSERT,DELETE ON marieteam.tarifer TO 'Technicien'@'localhost';
+GRANT SELECT,INSERT,DELETE ON marieteam.traversee TO 'Technicien'@'localhost';
+GRANT SELECT,INSERT,DELETE ON marieteam.type TO 'Technicien'@'localhost';
+
+GRANT ALL PRIVILEGES ON marieteam.* TO 'Admin'@'localhost';

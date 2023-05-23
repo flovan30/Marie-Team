@@ -1,4 +1,4 @@
-<style  rel = "StyleSheet" type="text/css"> @import url("css/profil.css");</style>
+ <style  rel = "StyleSheet" type="text/css"> @import url("css/profil.css");</style>
 
 <div class="table">
 <div class="boxgauche">

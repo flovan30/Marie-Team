@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : lun. 22 mai 2023 à 15:27
+-- Généré le : mar. 23 mai 2023 à 13:35
 -- Version du serveur : 8.0.31
 -- Version de PHP : 8.0.26
 
@@ -42,7 +42,7 @@ CREATE TABLE IF NOT EXISTS `bateau` (
 
 INSERT INTO `bateau` (`idBateau`, `nomBateau`, `longueurBateau`, `largeurBat`) VALUES
 (1, 'MegaMax-24', 270, 32),
-(2, 'Triple E’Class', 300, 38),
+(2, 'Triple EClass', 300, 38),
 (3, 'PanMax', 350, 40),
 (4, 'ICoah', 250, 30),
 (5, 'PingOurs', 330, 36);
@@ -258,7 +258,7 @@ INSERT INTO `etre_equipé` (`idBateau`, `idEquipement`) VALUES
 
 DROP TABLE IF EXISTS `liaison`;
 CREATE TABLE IF NOT EXISTS `liaison` (
-  `codeLiaison` int NOT NULL,
+  `codeLiaison` int NOT NULL AUTO_INCREMENT,
   `distanceLiaison` int NOT NULL,
   `idPort` int NOT NULL,
   `idPort_1` int NOT NULL,
@@ -267,23 +267,14 @@ CREATE TABLE IF NOT EXISTS `liaison` (
   KEY `idPort` (`idPort`),
   KEY `idPort_1` (`idPort_1`),
   KEY `idSecteur` (`idSecteur`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_bin;
 
 --
 -- Déchargement des données de la table `liaison`
 --
 
 INSERT INTO `liaison` (`codeLiaison`, `distanceLiaison`, `idPort`, `idPort_1`, `idSecteur`) VALUES
-(1, 8, 1, 2, 1),
-(2, 9, 2, 1, 1),
-(3, 8, 1, 3, 1),
-(4, 8, 3, 1, 1),
-(5, 24, 4, 2, 1),
-(6, 25, 2, 4, 1),
-(7, 9, 1, 5, 2),
-(8, 9, 5, 1, 2),
-(9, 8, 6, 7, 3),
-(10, 7, 7, 6, 3);
+(1, 69, 1, 2, 7);
 
 -- --------------------------------------------------------
 
